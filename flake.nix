@@ -14,9 +14,11 @@
     {
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
+          age
           fluxcd
           kubectl
           kubernetes-helm
+          sops
         ];
       };
     };
