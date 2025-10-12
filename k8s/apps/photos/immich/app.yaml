@@ -1,0 +1,80 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immich-server
+  namespace: photos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: immich-server
+  template:
+    metadata:
+      labels:
+        app: immich-server
+    spec:
+      containers:
+        - name: immich-server
+          image: ghcr.io/immich-app/immich-server:release
+          envFrom:
+            - configMapRef:
+                name: immich-shared-config
+            - secretRef:
+                name: immich-psql-secret
+      volumes:
+        - name: immich-library
+          persistentVolumeClaim:
+            claimName: immich-library-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: immich-server-svc
+  namespace: photos
+spec:
+  selector:
+    app: immich-server
+  ports:
+    - port: 2283
+
+#
+# Machine learning for immich
+#
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immich-machine-learning
+  namespace: photos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: immich-machine-learning
+  template:
+    metadata:
+      labels:
+        app: immich-machine-learning
+    spec:
+      volumes:
+        - name: immich-library
+          persistentVolumeClaim:
+            claimName: immich-library-pvc
+        - name: immich-ml-cache
+          persistentVolumeClaim:
+            claimName: immich-ml-cache-pvc
+      containers:
+        - name: immich-machine-learning
+          image: ghcr.io/immich-app/immich-machine-learning:release
+          envFrom:
+            - configMapRef:
+                name: immich-shared-config
+            - secretRef:
+                name: immich-psql-secret
+          volumeMounts:
+            - name: immich-library
+              mountPath: /usr/src/app/upload
+              readOnly: true
+            - name: immich-ml-cache
+              mountPath: /cache

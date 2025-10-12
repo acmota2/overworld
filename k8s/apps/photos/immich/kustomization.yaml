@@ -2,7 +2,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+secretGenerator:
+  - name: immich-psql-secret
+    envs:
+      - db.env.encrypted
+
 resources:
+  - app.yaml
+  - configmap.yaml
+  - psql.yaml
+  - redis.yaml
   - storage.yaml
-  - secret.yaml
-  - postgresql.yaml

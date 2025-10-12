@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: immich-shared-config
+  namespace: photos
+data:
+  DB_HOSTNAME: "immich-postgres-svc"
+  REDIS_HOSTNAME: "immich-redis-svc"
+  UPLOAD_LOCATION: "/usr/src/app/upload"
