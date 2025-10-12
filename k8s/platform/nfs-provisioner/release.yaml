@@ -17,8 +17,8 @@ spec:
 
   values:
     nfs:
-      server: nfs.voldemota.xyz
-      path: /k8s
+      server: 192.168.1.2
+      path: /k8s-cluster
 
     storageClass:
       name: nfs-client
