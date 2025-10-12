@@ -18,6 +18,8 @@
           fluxcd
           kubectl
           kubernetes-helm
+          kustomize
+          kustomize-sops
           sops
         ];
       };
