@@ -5,7 +5,7 @@ metadata:
   name: immich-postgresql
   namespace: photos
 spec:
-  serviceName: "immich-postgresql-svc"
+  serviceName: immich-postgresql-svc
   replicas: 1
   selector:
     matchLabels:
@@ -33,8 +33,8 @@ spec:
     - metadata:
         name: postgres-data
       spec:
-        accessModes: ["ReadWriteOnce"]
-        storageClassName: "longhorn"
+        accessModes: [ReadWriteOnce]
+        storageClassName: longhorn
         resources:
           requests:
             storage: 10Gi

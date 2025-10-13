@@ -4,6 +4,9 @@ kind: Kustomization
 
 secretGenerator:
   - name: immich-psql-secret
+    namespace: photos
+    options:
+      disableNameSuffixHash: true
     envs:
       - db.env.encrypted
 
