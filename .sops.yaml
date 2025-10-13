@@ -3,7 +3,6 @@ keys:
   - &flux age1e2ww68t6ekwk3d6c6k7u6wswnutsuqtht75yseerf7nynsvj6ezq3wtwk7
 creation_rules:
   - path_regex: (secret|db)\.(yaml|env)$
-    encrypted_regex: "^(data|stringData)$"
     key_groups:
       - age:
           - *EnderDragon

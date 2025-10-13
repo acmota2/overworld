@@ -8,7 +8,7 @@ secretGenerator:
     options:
       disableNameSuffixHash: true
     envs:
-      - db.env.encrypted
+      - db.env
 
 resources:
   - app.yaml
