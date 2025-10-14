@@ -16,4 +16,6 @@ spec:
     secretRef:
       name: sops-age
 resources:
+  - apps/
   - flux-system/
+  - platform/
