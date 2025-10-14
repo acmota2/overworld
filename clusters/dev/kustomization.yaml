@@ -1,6 +1,5 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
+apiVersion: kustomize.toolkit.k8s.io/v1beta1
 kind: Kustomization
-
 metadata:
   name: workloads
   namespace: flux-system
@@ -15,6 +14,9 @@ spec:
     provider: sops
     secretRef:
       name: sops-age
+---
+apiVersion: kustomize.config.k8s.io/v1
+kind: Kustomization
 resources:
   - apps/
   - flux-system/
