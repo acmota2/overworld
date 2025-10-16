@@ -14,21 +14,12 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: longhorn-repo
-
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: DaemonSet
-      name: longhorn-manager
-      namespace: longhorn-system
-
   targetNamespace: longhorn-system
   install:
     createNamespace: true
-
   values:
     persistence:
       defaultClassReplicaCount: 1 # TODO: change with multiple nodes
-
     ingress:
       enabled: true
       ingressClassName: nginx
