@@ -21,5 +21,6 @@ spec:
       path: /k8s-cluster
 
     storageClass:
+      create: true
       name: nfs-client
       defaultClass: false
