@@ -5,6 +5,6 @@ metadata:
   name: immich-shared-config
   namespace: photos
 data:
-  DB_HOSTNAME: "immich-postgres-svc"
+  DB_HOSTNAME: "immich-postgresql-svc"
   REDIS_HOSTNAME: "immich-redis-svc"
   UPLOAD_LOCATION: "/usr/src/app/upload"
