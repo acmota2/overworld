@@ -8,6 +8,11 @@ spec:
   interval: 10m
   path: ./clusters/dev/platform
   prune: true
+  dependsOn:
+    - name: longhorn-release
+      namespace: longhorn-system
+    - name: longhorn-repository
+      namespace: longhorn-system
   sourceRef:
     kind: GitRepository
     name: flux-system
