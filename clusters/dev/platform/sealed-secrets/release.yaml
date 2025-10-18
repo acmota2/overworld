@@ -17,10 +17,8 @@ spec:
   targetNamespace: platform
   install:
     createNamespace: true
-  upgrade:
-    remediation:
-      remediateLastFailure: true
-  install:
     crds: Create
   upgrade:
     crds: CreateReplace
+    remediation:
+      remediateLastFailure: true
