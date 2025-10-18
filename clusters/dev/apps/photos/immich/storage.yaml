@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: immich-images-pvc
+  name: immich-library-pvc
   namespace: photos
 spec:
   accessModes:
