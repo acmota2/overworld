@@ -20,8 +20,8 @@ spec:
   values:
     persistence:
       defaultClass: true
-      defaultClassReplicaCount: 1 # TODO: change with multiple nodes
+      defaultClassReplicaCount: 1 # TODO: change with multiple nodes in prod
     ingress:
       enabled: true
       ingressClassName: nginx
-      host: longhorn.home.voldemota.xyz
+      host: longhorn.dev.voldemota.xyz
