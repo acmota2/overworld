@@ -16,5 +16,5 @@ spec:
   install:
     createNamespace: true
   interval: 1h0m0s
-  storageNamespace: ingress-nginx
-  targetNamespace: ingress-nginx
+  storageNamespace: platform
+  targetNamespace: platform

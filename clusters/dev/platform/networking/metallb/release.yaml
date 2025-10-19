@@ -15,9 +15,11 @@ spec:
       version: "0.15.2"
   install:
     createNamespace: true
-  values:
-    crds:
-      enabled: true
+    crds: Create
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      remediateLastFailure: true
   interval: 1h0m0s
-  storageNamespace: metallb-system
-  targetNamespace: metallb-system
+  storageNamespace: platform
+  targetNamespace: platform
