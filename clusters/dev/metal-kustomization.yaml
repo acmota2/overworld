@@ -1,0 +1,17 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: metallb-controller
+  namespace: flux-system
+spec:
+  interval: 15m
+  path: ./clusters/dev/platform/networking/metallb
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: controller
+      namespace: platform
