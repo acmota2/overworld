@@ -1,0 +1,46 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: external-dns-internal
+  namespace: flux-system
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: external-dns
+      version: "0.19.0"
+      sourceRef:
+        kind: HelmRepository
+        name: external-dns
+        namespace: flux-system
+      interval: 5m
+
+  targetNamespace: platform
+
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+      remediateLastFailure: true
+
+  values:
+    provider: pihole
+    policy: sync
+    registry: noop
+    sources:
+      - ingress
+
+    domainFilters:
+      - dev.voldemota.xyz
+
+    pihole:
+      url: "http://192.168.1.4/admin"
+      apiToken:
+        valueFrom:
+          secretKeyRef:
+            name: pihole-api-token
+            key: PI_HOLE_API_KEY

@@ -2,8 +2,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: ingress-nginx
+  name: netbird
   namespace: flux-system
 spec:
   interval: 1h0m0s
-  url: https://kubernetes.github.io/ingress-nginx
+  url: https://netbirdio.github.io/helm-charts
