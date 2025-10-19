@@ -6,3 +6,4 @@ resources:
   - platform-flux.yaml
   - apps-flux.yaml
   - metallb-kustomization.yaml
+  - metallb-crs-kustomization.yaml
