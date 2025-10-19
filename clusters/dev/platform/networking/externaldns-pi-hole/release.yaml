@@ -24,13 +24,21 @@ spec:
       - ingress
     domainFilters:
       - dev.voldemota.xyz
-    args:
-      - --pihole-api-version=6
-    env:
-      - name: EXTERNAL_DNS_PIHOLE_SERVER
-        value: "http://192.168.1.4"
-      - name: EXTERNAL_DNS_PIHOLE_PASSWORD
+    pihole:
+      server: "http://192.168.1.4"
+      password:
         valueFrom:
           secretKeyRef:
             name: pihole-api-token
             key: PI_HOLE_API_KEY
+      apiVersion: 6
+    # args:
+    #   - --pihole-api-version=6
+    # env:
+    #   - name: EXTERNAL_DNS_PIHOLE_SERVER
+    #     value: "http://192.168.1.4"
+    #   - name: EXTERNAL_DNS_PIHOLE_PASSWORD
+    #     valueFrom:
+    #       secretKeyRef:
+    #         name: pihole-api-token
+    #         key: PI_HOLE_API_KEY
