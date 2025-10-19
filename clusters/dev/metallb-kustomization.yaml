@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  path: ./clusters/dev/platform/networking/metallb
+  path: ./clusters/dev/platform/networking/metallb/control
   prune: true
   sourceRef:
     kind: GitRepository
