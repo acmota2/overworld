@@ -24,4 +24,5 @@ spec:
     crds: CreateReplace
   targetNamespace: cert-manager
   values:
-    installCRDs: true
+    crds:
+      enabled: true
