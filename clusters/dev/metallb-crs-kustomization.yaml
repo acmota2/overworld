@@ -7,7 +7,7 @@ spec:
   interval: 15m
   dependsOn:
     - name: metallb-controller
-  path: ./cluters/dev/platform/networking/metallb/config
+  path: ./clusters/dev/platform/networking/metallb/config
   prune: true
   timeout: 2m
   sourceRef:
