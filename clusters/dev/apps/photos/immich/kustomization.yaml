@@ -13,6 +13,7 @@ secretGenerator:
 resources:
   - app.yaml
   - configmap.yaml
+  - ingress.yaml
   - psql.yaml
   - redis.yaml
   - storage.yaml
