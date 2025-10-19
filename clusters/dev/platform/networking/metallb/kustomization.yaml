@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - release.yaml
   - repository.yaml
-  - ip-address-pool.yaml
+  - ip-addr-pool.yaml
