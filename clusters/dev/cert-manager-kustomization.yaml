@@ -5,22 +5,9 @@ metadata:
   namespace: flux-system
 spec:
   interval: 15m
-  path: ./clusters/dev/platform/cert-manager
+  path: ./clusters/dev/platform/cert-manager/control
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: cert-manager
-      namespace: cert-manager
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: cert-manager-cainjector
-      namespace: cert-manager
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: cert-manager-webhook
-      namespace: cert-manager
   timeout: 5m
