@@ -22,7 +22,7 @@ spec:
     remediation:
       retries: 3
     crds: CreateReplace
-  targetNamespace: cert-manager
+  targetNamespace: platform
   values:
     crds:
       enabled: true
