@@ -7,3 +7,4 @@ resources:
   - apps-flux.yaml
   - metallb-kustomization.yaml
   - metallb-crs-kustomization.yaml
+  - cert-manager-kustomization.yaml
