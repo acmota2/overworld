@@ -17,5 +17,5 @@ spec:
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
-      name: cert-manager-controller
+      name: platform-cert-manager
       namespace: platform
