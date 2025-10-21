@@ -8,7 +8,7 @@ spec:
   interval: 15m
   dependsOn:
     - name: cert-manager-controller
-  path: ./clusters/dev/platform/cert-manager/cfg
+  path: ./clusters/prod/platform/cert-manager/cfg
   prune: true
   timeout: 2m
   sourceRef:
