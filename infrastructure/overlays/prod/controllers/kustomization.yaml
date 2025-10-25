@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - storage/
   - networking/
+  - base-config.yaml
