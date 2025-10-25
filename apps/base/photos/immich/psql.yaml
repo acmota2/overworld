@@ -25,7 +25,7 @@ spec:
               value: "--data-checksums"
           envFrom:
             - secretRef:
-                name: immich-psql-secret
+                name: immich-db-secret
           volumeMounts:
             - name: postgres-data
               mountPath: /var/lib/postgresql/data
