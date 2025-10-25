@@ -18,3 +18,5 @@ spec:
   interval: 1h0m0s
   storageNamespace: longhorn-system
   targetNamespace: ingress-nginx
+  values:
+    fullnameOverride: ingress-nginx-controller

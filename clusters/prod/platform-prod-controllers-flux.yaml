@@ -16,7 +16,7 @@ spec:
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
-      name: cert-manager-cert-manager
+      name: cert-manager-controller
       namespace: cert-manager
     - apiVersion: apps/v1
       kind: Deployment
