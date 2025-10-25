@@ -13,11 +13,11 @@ spec:
     name: flux-system
   dependsOn:
     - name: platform-config
-  healthChecks:
-    - apiVersion: v1
-      kind: PersistentVolumeClaim
-      name: nfs-backups-pvc
-      namespace: platform
+  # healthChecks:
+  # - apiVersion: v1
+  #   kind: PersistentVolumeClaim
+  #   name: nfs-backups-pvc
+  #   namespace: platform
   decryption:
     provider: sops
     secretRef:
