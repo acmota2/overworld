@@ -20,7 +20,7 @@ spec:
       namespace: cert-manager
     - apiVersion: apps/v1
       kind: Deployment
-      name: ingress-nginx-controller
+      name: ingress-nginx-cotroller-controller
       namespace: ingress-nginx
     - apiVersion: apps/v1
       kind: Deployment
