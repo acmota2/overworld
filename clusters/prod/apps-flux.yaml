@@ -12,7 +12,7 @@ spec:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: platform-prod-config
+    - name: platform-config
   healthChecks:
     - apiVersion: v1
       kind: PersistentVolumeClaim

@@ -17,6 +17,7 @@
           age
           fluxcd
           k3d
+          kube-linter
           kubectl
           kubernetes-helm
           kubeseal
