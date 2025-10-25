@@ -12,10 +12,10 @@ spec:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: platform-prod-controller
+    - name: platform-prod-controllers
   postBuild:
     substitute:
-      base-config:
+      prod-config:
         kind: ConfigMap
         name: base-config
   healthChecks:
@@ -25,5 +25,5 @@ spec:
       namespace: platform
     - apiVersion: apps/v1
       kind: Deployment
-      name: longhorn-manager # Verify name
+      name: longhorn-manager
       namespace: longhorn-system
