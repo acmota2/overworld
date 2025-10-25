@@ -24,8 +24,11 @@ spec:
     ingress:
       enabled: true
       ingressClassName: nginx
-      host: longhorn.home.voldemota.xyz
+      host: longhorn.home.${INTERAL_ADDRESS}
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-dns
+        nginx.ingress.kubernetes.io/force-ssl-redirect: true
       tls:
         - hosts:
-            - longhorn.home.voldemota.xyz
+            - longhorn.home.${INTERAL_ADDRESS}
           secretName: longhorn-tls
