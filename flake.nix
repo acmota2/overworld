@@ -21,6 +21,7 @@
           kubectl
           kubernetes-helm
           kubeseal
+          kubeval
           kustomize
           kustomize-sops
           sops
