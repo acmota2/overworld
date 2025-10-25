@@ -14,9 +14,8 @@ spec:
   dependsOn:
     - name: platform-prod-controllers
   postBuild:
-    substitute:
-      prod-config:
-        kind: ConfigMap
+    substituteFrom:
+      - kind: ConfigMap
         name: base-config
   healthChecks:
     - apiVersion: apps/v1
