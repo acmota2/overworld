@@ -16,6 +16,7 @@
         packages = with pkgs; [
           age
           fluxcd
+          k3d
           kubectl
           kubernetes-helm
           kubeseal

@@ -1,0 +1,31 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: longhorn-release
+  namespace: longhorn-system
+spec:
+  interval: 1m0s
+  chart:
+    spec:
+      chart: longhorn
+      reconcileStrategy: ChartVersion
+      version: "1.10.0"
+      sourceRef:
+        kind: HelmRepository
+        name: longhorn-repo
+  targetNamespace: longhorn-system
+  install:
+    createNamespace: true
+  values:
+    persistence:
+      defaultClass: true
+      defaultClassReplicaCount: 2
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      host: longhorn.home.voldemota.xyz
+      tls:
+        - hosts:
+            - longhorn.home.voldemota.xyz
+          secretName: longhorn-tls

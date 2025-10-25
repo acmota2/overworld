@@ -4,8 +4,5 @@ kind: Kustomization
 resources:
   - flux-system/
   - apps-flux.yaml
-  - cert-manager-cfg-kustomization.yaml
-  - cert-manager-kustomization.yaml
-  - metallb-crs-kustomization.yaml
-  - metallb-kustomization.yaml
-  - platform-flux.yaml
+  - platform-config-flux.yaml
+  - platform-controllers-flux.yaml
