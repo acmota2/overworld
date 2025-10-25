@@ -5,4 +5,4 @@ bases:
   - ../../base
 
 patchesStrategicMerge:
-  - immich-storage-patch.yaml
+  - immich-overlay.yaml
