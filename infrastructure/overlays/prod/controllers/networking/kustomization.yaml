@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   # - netbird/
   - externaldns-pi-hole/
-  - ingress-nginx/
+  - metallb/
