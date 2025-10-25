@@ -16,7 +16,7 @@ spec:
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
-      name: cert-manager-controller
+      name: cert-manager-cert-manager
       namespace: cert-manager
     - apiVersion: apps/v1
       kind: Deployment
@@ -25,4 +25,4 @@ spec:
     - apiVersion: apps/v1
       kind: Deployment
       name: sealed-secrets-controller
-      namespace: flux-system
+      namespace: sealed-secrets

@@ -16,5 +16,5 @@ spec:
   install:
     createNamespace: true
   interval: 1h0m0s
-  storageNamespace: platform
-  targetNamespace: platform
+  storageNamespace: longhorn-system
+  targetNamespace: ingress-nginx
