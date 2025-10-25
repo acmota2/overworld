@@ -23,6 +23,6 @@ spec:
       name: speaker
       namespace: platform
     - apiVersion: apps/v1
-      kind: Deployment
+      kind: DaemonSet
       name: longhorn-manager
       namespace: longhorn-system
