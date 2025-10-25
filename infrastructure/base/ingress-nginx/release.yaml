@@ -19,4 +19,4 @@ spec:
   storageNamespace: longhorn-system
   targetNamespace: ingress-nginx
   values:
-    fullnameOverride: ingress-nginx-controller
+    fullnameOverride: ingress-nginx
