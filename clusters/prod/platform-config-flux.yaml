@@ -20,7 +20,7 @@ spec:
   healthChecks:
     - apiVersion: apps/v1
       kind: DaemonSet
-      name: speaker
+      name: platform-metallb-speaker
       namespace: platform
     - apiVersion: apps/v1
       kind: DaemonSet
