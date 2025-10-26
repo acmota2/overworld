@@ -6,5 +6,5 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  url: oci://ghcr.io/dragonflydb/dragonfly/helm
+  url: oci://ghcr.io/dragonflydb/dragonfly/helm/dragonfly
   type: oci
