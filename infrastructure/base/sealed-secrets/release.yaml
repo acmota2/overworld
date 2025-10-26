@@ -24,3 +24,8 @@ spec:
       remediateLastFailure: true
   values:
     fullnameOverride: sealed-secrets-controller
+    rbac:
+      create: true
+    serviceAccount:
+      create: true
+      name: sealed-secrets-controller
