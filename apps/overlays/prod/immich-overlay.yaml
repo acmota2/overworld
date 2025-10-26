@@ -12,14 +12,3 @@ spec:
   resources:
     requests:
       storage: 1Ti
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: immich-ml-cache-pvc
-  namespace: photos
-spec:
-  storageClassName: longhorn
-  resources:
-    requests:
-      storage: 10Gi
