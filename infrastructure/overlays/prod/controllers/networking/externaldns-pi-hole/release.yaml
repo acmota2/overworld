@@ -43,5 +43,5 @@ spec:
       - name: EXTERNAL_DNS_PIHOLE_PASSWORD
         valueFrom:
           secretKeyRef:
-            name: pi-hole-token
+            name: pi-hole-secrets
             key: PI_HOLE_ADMIN_TOKEN
