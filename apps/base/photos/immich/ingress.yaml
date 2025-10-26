@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: immich.dev.voldemota.xyz
+    - host: immich.${INTERNAL_ADDRESS}
       http:
         paths:
           - path: /
@@ -22,5 +22,5 @@ spec:
                   number: 2283
   tls:
     - hosts:
-        - immich.dev.voldemota.xyz
+        - immich.${INTERNAL_ADDRESS}
       secretName: immich-ui-tls
