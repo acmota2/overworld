@@ -21,7 +21,7 @@ spec:
             - configMapRef:
                 name: immich-shared-config
             - secretRef:
-                name: immich-psql-secret
+                name: immich-db-secrets
       volumes:
         - name: immich-library
           persistentVolumeClaim:
@@ -71,7 +71,7 @@ spec:
             - configMapRef:
                 name: immich-shared-config
             - secretRef:
-                name: immich-psql-secret
+                name: immich-db-secrets
           volumeMounts:
             - name: immich-library
               mountPath: /usr/src/app/upload
