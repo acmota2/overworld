@@ -25,10 +25,11 @@ spec:
       enabled: true
       ingressClassName: nginx
       host: longhorn.${INTERNAL_ADDRESS}
+      tls: true
+      tlsSecret: longhorn-tls
+      path: /
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-dns
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      tls:
-        - hosts:
-            - longhorn.${INTERNAL_ADDRESS}
-          secretName: longhorn-tls
+      secureBackends: false
+      secrets: []
