@@ -1,0 +1,34 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: sealed-secrets-role-clusterwide
+  labels:
+    app.kubernetes.io/name: sealed-secrets
+    app.kubernetes.io/instance: sealed-secrets
+rules:
+  - apiGroups: ["bitnami.com"]
+    resources: ["sealedsecrets"]
+    verbs: ["get", "list", "watch", "update", "patch"]
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create", "patch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: sealed-secrets-controller-binding
+  labels:
+    app.kubernetes.io/name: sealed-secrets
+    app.kubernetes.io/instance: sealed-secrets
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: sealed-secrets-role-clusterwide
+subjects:
+  - kind: ServiceAccount
+    name: sealed-secrets-controller
+    namespace: sealed-secrets
