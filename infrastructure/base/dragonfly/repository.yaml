@@ -6,4 +6,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h0m0s
-  url: https://dragonflydb.github.io/helm-charts
+  url: https://dragonflyoss.github.io/helm-charts/
