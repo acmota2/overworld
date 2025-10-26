@@ -15,8 +15,12 @@ spec:
         name: dragonfly-repo
   targetNamespace: dragonfly
   install:
+    createNamespace: true
     remediation:
       retries: 3
   upgrade:
     remediation:
       retries: 3
+  values:
+    global:
+      storageClass: "longhorn"

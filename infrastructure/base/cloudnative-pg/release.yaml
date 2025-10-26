@@ -15,6 +15,7 @@ spec:
         name: cloudnative-pg-repo
   targetNamespace: cloudnative-pg
   install:
+    createNamespace: true
     remediation:
       retries: 3
   upgrade:
