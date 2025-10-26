@@ -31,21 +31,22 @@ spec:
           enabled: true
           days: 30
     server:
-      ingress:
-        enabled: true
-        annotations:
-          kubernetes.io/ingress.class: nginx
-          cert-manager.io/cluster-issuer: letsencrypt-tls
-        hosts:
-          - host: immich.${INTERNAL_ADDRESS}
-            paths:
-              - path: "/"
-                service:
-                  identifier: main
-        tls:
-          - secretName: immich-tls
-            hosts:
-              - immich.${INTERNAL_ADDRESS}
+      main:
+        ingress:
+          enabled: true
+          annotations:
+            kubernetes.io/ingress.class: nginx
+            cert-manager.io/cluster-issuer: letsencrypt-tls
+          hosts:
+            - host: immich.${INTERNAL_ADDRESS}
+              paths:
+                - path: "/"
+                  service:
+                    identifier: main
+          tls:
+            - secretName: immich-tls
+              hosts:
+                - immich.${INTERNAL_ADDRESS}
     machine-learning:
       persistence:
         cache:
