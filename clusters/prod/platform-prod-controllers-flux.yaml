@@ -13,6 +13,10 @@ spec:
     name: flux-system
   dependsOn:
     - name: platform-pre-requisites
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: base-config
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
