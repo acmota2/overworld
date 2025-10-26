@@ -17,6 +17,7 @@ spec:
     substituteFrom:
       - kind: ConfigMap
         name: base-config
+        namespace: flux-system
   healthChecks:
     - apiVersion: apps/v1
       kind: DaemonSet
