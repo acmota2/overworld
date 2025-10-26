@@ -12,7 +12,7 @@ spec:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: platform-controller
+    - name: platform-pre-requisites
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment

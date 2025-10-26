@@ -7,3 +7,4 @@ resources:
   - platform-config-flux.yaml
   - platform-controllers-flux.yaml
   - platform-prod-controllers-flux.yaml
+  - pre-controllers-prod-flux.yaml
