@@ -4,5 +4,7 @@ kind: Kustomization
 resources:
   - sealed-secrets/
   - cert-manager/
+  - dragonfly/
+  - cloudnative-pg/
   - ingress-nginx/
   - namespace.yaml
