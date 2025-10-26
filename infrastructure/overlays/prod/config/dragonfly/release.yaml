@@ -1,26 +1,51 @@
----
-apiVersion: helm.toolkit.fluxcd.io/v2
+# infrastructure/overlays/prod/config/dragonfly/release.yaml
+apiVersion: helm.toolkit.fluxcd.io/v2 # Or v2beta1, check your Flux API version
 kind: HelmRelease
 metadata:
-  name: dragonflydb
-  namespace: flux-system
+  name: dragonfly # Name for this release
+  namespace: dragonfly # Namespace where Dragonfly will run
 spec:
-  interval: 5m0s
+  interval: 30m
   chart:
     spec:
       chart: dragonfly
-      version: "1.4.15"
+      version: "1.34.2"
       sourceRef:
         kind: HelmRepository
-        name: dragonfly-repo
-  targetNamespace: dragonfly
+        name: dragonflydb-oci
+        namespace: flux-system
+      interval: 1h
   install:
     createNamespace: true
-    remediation:
-      retries: 3
-  upgrade:
-    remediation:
-      retries: 3
+  targetNamespace: dragonfly
   values:
-    global:
+    persistence:
+      enabled: true
       storageClass: "longhorn"
+      size: "10Gi"
+    podSecurityContext:
+      fsGroup: 2000
+    securityContext:
+      capabilities:
+        drop:
+          - ALL
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
+      runAsUser: 1000
+    snapshots:
+      enabled: false
+      # schedule: "* * * * *" # Example cron schedule
+      # storage:
+      #   s3:
+      #     endpoint: "http://minio.minio.svc:9000" # Your MinIO service
+      #     bucket: "dragonfly-backups"
+      #     region: "us-east-1" # Or your region
+      #     # You'll need a secret with AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+      #     credentialsSecret: "minio-creds"
+
+    # Add any other prod-specific overrides here
+    # replicas: 1
+    # resources:
+    #   requests:
+    #     cpu: 100m
+    #     memory: 256Mi
