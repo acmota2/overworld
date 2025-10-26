@@ -2,17 +2,17 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: apps-prod
+  name: apps-reqs-prod
   namespace: flux-system
 spec:
   interval: 10m
-  path: ../../apps/overlays/prod/
+  path: ../../apps/overlays/prod/reqs
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: apps-reqs-prod
+    - name: platform-config
   postBuild:
     substituteFrom:
       - kind: ConfigMap
