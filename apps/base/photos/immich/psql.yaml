@@ -40,7 +40,6 @@ spec:
           requests:
             storage: 10Gi
 ---
-# Network for PostgreSQL
 apiVersion: v1
 kind: Service
 metadata:
