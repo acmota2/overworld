@@ -27,7 +27,7 @@ spec:
       host: longhorn.${INTERNAL_ADDRESS}
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-dns
-        nginx.ingress.kubernetes.io/force-ssl-redirect: true
+        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       tls:
         - hosts:
             - longhorn.${INTERNAL_ADDRESS}
