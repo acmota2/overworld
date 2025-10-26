@@ -13,6 +13,10 @@ spec:
     name: flux-system
   dependsOn:
     - name: platform-config
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: base-config
   # healthChecks:
   # - apiVersion: v1
   #   kind: PersistentVolumeClaim
