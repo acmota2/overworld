@@ -15,25 +15,12 @@ spec:
     remediation:
       retries: 3
   upgrade:
-    cleanupOnFail: true
     remediation:
       retries: 3
   targetNamespace: dragonfly
   values:
-    persistence:
-      enabled: true
-      storageClass: "longhorn"
-      size: "10Gi"
-    podSecurityContext:
-      fsGroup: 2000
-    securityContext:
-      capabilities:
-        drop:
-          - ALL
-      readOnlyRootFilesystem: true
-      runAsNonRoot: true
-    snapshots:
-      enabled: false
+    storage:
+      enabled: false # if data should persist in the future
       # schedule: "* * * * *" # Example cron schedule
       # storage:
       #   s3:
