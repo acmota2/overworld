@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2 # Or v2beta1, check your Flux API version
 kind: HelmRelease
 metadata:
   name: dragonfly # Name for this release
-  namespace: dragonfly # Namespace where Dragonfly will run
+  namespace: flux-system # Namespace where Dragonfly will run
 spec:
   interval: 30m
   chart:
