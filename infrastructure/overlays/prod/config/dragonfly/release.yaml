@@ -8,7 +8,7 @@ spec:
   interval: 30m
   chartRef:
     kind: OCIRepository
-    name: dragonflydb-oci
+    name: dragonfly-oci
     namespace: flux-system
   install:
     createNamespace: true
