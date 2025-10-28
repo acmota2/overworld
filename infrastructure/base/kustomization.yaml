@@ -6,6 +6,7 @@ resources:
   - cert-manager/
   - dragonfly/
   - cloudnative-pg/
+  - infisical/
   - ingress-nginx/
   - repositories/
   - namespace.yaml
