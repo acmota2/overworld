@@ -11,7 +11,7 @@ spec:
   chartRef:
     kind: HelmChart
     name: app-template
-  targetNamespace: minio
+  targetNamespace: platform
   install:
     createNamespace: true
     remediation:
