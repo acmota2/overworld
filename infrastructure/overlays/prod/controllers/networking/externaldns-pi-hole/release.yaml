@@ -19,7 +19,7 @@ spec:
   values:
     provider:
       name: pihole
-    policy: sync
+    policy: upsert-only
     registry: noop
     sources:
       - ingress

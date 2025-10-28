@@ -84,7 +84,7 @@ spec:
               - minio.${INTERNAL_ADDRESS}
     persistence:
       data:
-        existingClaim: minio-nfs
+        existingClaim: minio-pvc
         globalMounts:
           - path: /data
     # serviceMonitor:
