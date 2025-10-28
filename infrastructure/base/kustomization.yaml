@@ -7,4 +7,5 @@ resources:
   - dragonfly/
   - cloudnative-pg/
   - ingress-nginx/
+  - repositories/
   - namespace.yaml
