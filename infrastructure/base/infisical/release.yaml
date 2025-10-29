@@ -70,8 +70,8 @@ spec:
       enabled: true
       nginx:
         enabled: true
+      inressClassName: nginx
       annotations:
-        kubernetes.io/ingress.class: nginx
         cert-manager.io/cluster-issuer: letsencrypt-tls
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       hostName: &host infisical.${INTERNAL_ADDRESS}
