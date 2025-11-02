@@ -34,6 +34,21 @@ spec:
       prometheusSpec:
         retention: 7d
     grafana:
+      livenessProbe:
+        initialDelaySeconds: 1000
+      readinessProbe:
+        initialDelaySeconds: 1000
+      persistence:
+        enabled: true
+        storageClassName: longhorn
+        accessModes:
+          - "ReadWriteOnce"
+        size: 10Gi
+      sidecar:
+        dashboards:
+          enabled: true
+          label: grafana_dashboard
+          labelValue: "1"
       ingress:
         enabled: true
         ingressClassName: nginx
