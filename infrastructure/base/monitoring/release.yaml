@@ -1,0 +1,61 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.ok8.sh/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: kube-prometheus-stack-repo
+    namespace: flux-system
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  values:
+    crds:
+      enabled: true
+      upgradeJob:
+        enabled: true
+        forceConflicts: true
+    prometheus:
+      prometheusSpec:
+        retention: 7d
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: longhorn
+              accessModes:
+                - "ReadWriteOnce"
+              resources:
+                requests:
+                  storage: 50Gi
+    grafana:
+      persistence:
+        enabled: true
+        storageClassName: longhorn
+        accessModes:
+          - "ReadWriteOnce"
+        size: 10Gi
+      sidecar:
+        dashboards:
+          enabled: true
+          label: grafana_dashboard
+          labelValue: "1"
+      ingress:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-dns
+          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+        hosts:
+          - grafana.${INTERNAL_ADDRESS}
+        tls:
+          - secretName: grafana-tls
+            hosts:
+              - grafana.${INTERNAL_ADDRESS}
