@@ -40,6 +40,10 @@ spec:
                 requests:
                   storage: 50Gi
     grafana:
+      livenessProbe:
+        initialDelaySeconds: 240
+      readinessProbe:
+        initialDelaySeconds: 240
       persistence:
         enabled: true
         storageClassName: longhorn
