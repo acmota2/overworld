@@ -4,6 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
+  namespace: monitoring
 spec:
   interval: 1h
   chartRef:
@@ -11,6 +12,7 @@ spec:
     name: kube-prometheus-stack-repo
     namespace: flux-system
   install:
+    createNamespace: true
     remediation:
       retries: -1
   upgrade:
