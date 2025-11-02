@@ -6,11 +6,15 @@ metadata:
   name: kube-prometheus-stack
   namespace: flux-system
 spec:
-  interval: 1h
-  chartRef:
-    kind: OCIRepository
-    name: kube-prometheus-stack-repo
-    namespace: flux-system
+  interval: 30m
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: 79.1.0
+      sourceRef:
+        kind: HelmRepository
+        name: kube-prometheus-stack-repo
+        namespace: flux-system
   install:
     createNamespace: true
     remediation:
@@ -28,33 +32,8 @@ spec:
         forceConflicts: true
     prometheus:
       prometheusSpec:
-        serviceMonitorSelectorNilUsesHelmValues: true
         retention: 7d
-        storageSpec:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: longhorn
-              accessModes:
-                - "ReadWriteOnce"
-              resources:
-                requests:
-                  storage: 50Gi
     grafana:
-      livenessProbe:
-        initialDelaySeconds: 1000
-      readinessProbe:
-        initialDelaySeconds: 1000
-      persistence:
-        enabled: true
-        storageClassName: longhorn
-        accessModes:
-          - "ReadWriteOnce"
-        size: 10Gi
-      sidecar:
-        dashboards:
-          enabled: true
-          label: grafana_dashboard
-          labelValue: "1"
       ingress:
         enabled: true
         ingressClassName: nginx
