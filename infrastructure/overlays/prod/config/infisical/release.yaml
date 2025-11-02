@@ -55,7 +55,7 @@ spec:
 
       affinity: {}
       # -- Kubernetes Secret reference containing Infisical root credentials
-      kubeSecretRef: infisical-auth
+      kubeSecretRef: "infisical-auth"
 
       service:
         annotations: {}
