@@ -19,8 +19,6 @@ spec:
   targetNamespace: platform
   install:
     createNamespace: true
-    remediation:
-      retries: -1
   upgrade:
     cleanupOnFail: true
     remediation:

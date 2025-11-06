@@ -17,8 +17,6 @@ spec:
         namespace: flux-system
   install:
     createNamespace: true
-    remediation:
-      retries: -1
   upgrade:
     cleanupOnFail: false
     remediation:
@@ -35,9 +33,9 @@ spec:
         retention: 7d
     grafana:
       livenessProbe:
-        initialDelaySeconds: 1000
+        initialDelaySeconds: 60
       readinessProbe:
-        initialDelaySeconds: 1000
+        initialDelaySeconds: 60
       persistence:
         enabled: true
         storageClassName: longhorn
