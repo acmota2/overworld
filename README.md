@@ -46,7 +46,9 @@ This is the evolving stack of services being built on top of the core infrastruc
 * **Platform Services:** The "Advanced Platform Services" (`CloudNativePG`, `Dragonfly`, `MinIO`, `external-dns`) are deployed, reconciling, and ready for application consumption.
 
 ### Under Active Development
-* **Monitoring stack:** The `kube-prometheus-stack` (Grafana, Prometheus) is currently non-functional.
+* **External DNS**: currently not working as expected; investigating issues with Pi-hole integration or complete ingress process.
+* **Secrets management**: working on integrating `Infisical` with the `External Secrets Operator` to pull secrets into the cluster.
+* **CloudNativePG**: fine-tuning configuration for high availability and backup strategies using `MinIO`.
 
 ### Future Roadmap
 * **R&D sandbox (dev cluster):** Build the `clusters/dev` environment using [k3d](https://k3d.io/). This will serve as a testing environment for new technologies and applications.
