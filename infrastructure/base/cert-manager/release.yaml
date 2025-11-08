@@ -15,8 +15,6 @@ spec:
         name: cert-manager
         namespace: flux-system
   install:
-    remediation:
-      retries: 5
     crds: CreateReplace
   upgrade:
     remediation:
