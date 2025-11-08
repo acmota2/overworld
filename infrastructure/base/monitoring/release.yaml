@@ -19,8 +19,6 @@ spec:
     createNamespace: true
   upgrade:
     cleanupOnFail: false
-    remediation:
-      retries: 3
   targetNamespace: monitoring
   values:
     crds:

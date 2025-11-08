@@ -67,6 +67,7 @@ spec:
     ingress:
       main:
         enabled: true
+        className: nginx
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-tls
           nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
