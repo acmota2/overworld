@@ -76,6 +76,11 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+                backend:
+                  service:
+                    name: minio
+                    port:
+                      number: 9001
         tls:
           - secretName: minio-tls
             hosts:
