@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: external-dns
-      version: "9.0.3"
+      version: "1.19.0"
       sourceRef:
         kind: HelmRepository
         name: external-dns
@@ -26,22 +26,22 @@ spec:
     domainFilters:
       - home.voldemota.xyz
       - voldemota.xyz
-    pihole:
-      server: "http://192.168.1.4"
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: pi-hole-secrets
-            key: PI_HOLE_ADMIN_TOKEN
-    #   apiVersion: 6
-    # FUTURE: pay attention to updating this one
-    # env:
-    #   - name: EXTERNAL_DNS_PIHOLE_API_VERSION
-    #     value: "6"
-    #   - name: EXTERNAL_DNS_PIHOLE_SERVER
-    #     value: "http://192.168.1.4"
-    #   - name: EXTERNAL_DNS_PIHOLE_PASSWORD
+    # pihole:
+    #   server: "http://192.168.1.4"
+    #   password:
     #     valueFrom:
     #       secretKeyRef:
     #         name: pi-hole-secrets
     #         key: PI_HOLE_ADMIN_TOKEN
+    #   apiVersion: 6
+    # FUTURE: pay attention to updating this one
+    env:
+      - name: EXTERNAL_DNS_PIHOLE_API_VERSION
+        value: "6"
+      - name: EXTERNAL_DNS_PIHOLE_SERVER
+        value: "http://192.168.1.4"
+      - name: EXTERNAL_DNS_PIHOLE_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: pi-hole-secrets
+            key: PI_HOLE_ADMIN_TOKEN
