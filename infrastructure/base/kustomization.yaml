@@ -6,6 +6,7 @@ resources:
   - cloudnative-pg/
   - dragonfly/
   - external-secrets/
+  - gateway/
   - infisical/
   - ingress-nginx/
   - monitoring/
