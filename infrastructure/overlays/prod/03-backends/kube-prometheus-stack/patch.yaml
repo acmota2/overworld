@@ -1,0 +1,28 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: flux-system
+spec:
+  values:
+    grafana:
+      persistence:
+        enabled: true
+        storageClassName: longhorn
+        accessModes:
+          - "ReadWriteOnce"
+        size: 10Gi
+      ingress:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          cert-manager.io/cluster-issuer: letsencrypt-dns
+          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+        hosts:
+          - grafana.${INTERNAL_ADDRESS}
+        tls:
+          - secretName: grafana-tls
+            hosts:
+              - grafana.${INTERNAL_ADDRESS}

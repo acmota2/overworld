@@ -1,0 +1,41 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.ok8.sh/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: flux-system
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: 79.1.0
+      sourceRef:
+        kind: HelmRepository
+        name: kube-prometheus-stack-repo
+        namespace: flux-system
+  install:
+    createNamespace: true
+  upgrade:
+    cleanupOnFail: false
+  targetNamespace: monitoring
+  values:
+    crds:
+      enabled: true
+      upgradeJob:
+        enabled: true
+        forceConflicts: true
+    prometheus:
+      prometheusSpec:
+        retention: 7d
+    grafana:
+      livenessProbe:
+        initialDelaySeconds: 60
+      readinessProbe:
+        initialDelaySeconds: 60
+      sidecar:
+        dashboards:
+          enabled: true
+          label: grafana_dashboard
+          labelValue: "1"

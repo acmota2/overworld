@@ -1,0 +1,19 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: 01-core
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ../../infrastructure/overlays/prod/01-core
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  dependsOn:
+    - name: 00-base-config
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: base-config

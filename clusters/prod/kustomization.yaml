@@ -2,11 +2,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - apps-base-reqs-flux.yaml
-  - apps-flux.yaml
-  - apps-reqs-flux.yaml
+  - 00-base-config.yaml
+  - 01-core.yaml
+  - 02-core-config.yaml
+  - 03-backends.yaml
+  - 04-services.yaml
   - flux-system/
-  - platform-config-flux.yaml
-  - platform-controllers-flux.yaml
-  - platform-prod-controllers-flux.yaml
-  - pre-controllers-prod-flux.yaml
