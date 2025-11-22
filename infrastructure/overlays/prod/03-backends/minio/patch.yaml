@@ -1,0 +1,30 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: minio
+  namespace: flux-system
+spec:
+  values:
+    persistence:
+      data:
+        existingClaim: minio-pvc
+        globalMounts:
+          - path: /data
+    ingress:
+      main:
+        enabled: true
+        className: nginx
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          cert-manager.io/cluster-issuer: letsencrypt-tls
+          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+        hosts:
+          - host: minio.${INTERNAL_ADDRESS}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - secretName: minio-tls
+            hosts:
+              - minio.${INTERNAL_ADDRESS}

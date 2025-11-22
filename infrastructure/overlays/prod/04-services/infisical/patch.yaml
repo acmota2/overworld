@@ -1,0 +1,25 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: infisical
+  namespace: flux-system
+spec:
+  values:
+    infisical:
+      # -- Kubernetes Secret reference containing Infisical root credentials
+      kubeSecretRef: "infisical-auth"
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        cert-manager.io/cluster-issuer: letsencrypt-tls
+        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      ingressClassName: nginx
+      nginx:
+        enabled: true
+      hostName: &infisical-host infisical.${INTERNAL_ADDRESS}
+      tls:
+        - secretName: infisical-tls
+          hosts:
+            - *infisical-host
