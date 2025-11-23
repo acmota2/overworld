@@ -7,4 +7,6 @@ bases:
 
 patchesStrategicMerge:
   - patch.yaml
+
+resources:
   - infisical-sealed.yaml
