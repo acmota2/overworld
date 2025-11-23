@@ -7,15 +7,4 @@ metadata:
 spec:
   values:
     ingress:
-      enabled: true
-      ingressClassName: nginx
-      host: longhorn.${INTERNAL_ADDRESS}
-      tls: true
-      tlsSecret: longhorn-tls
-      path: /
-      annotations:
-        kubernetes.io/ingress.class: nginx
-        cert-manager.io/cluster-issuer: letsencrypt-dns
-        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      secureBackends: false
-      secrets: []
+      enabled: false
