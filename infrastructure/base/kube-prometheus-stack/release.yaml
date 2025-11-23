@@ -16,8 +16,10 @@ spec:
         name: kube-prometheus-stack-repo
         namespace: flux-system
   install:
+    timeout: 15m0s
     createNamespace: true
   upgrade:
+    timeout: 15m0s
     cleanupOnFail: false
   targetNamespace: monitoring
   values:
