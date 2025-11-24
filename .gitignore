@@ -1,3 +1,4 @@
 ~/
 *.agekey
 *.tok
+*.secret.*
