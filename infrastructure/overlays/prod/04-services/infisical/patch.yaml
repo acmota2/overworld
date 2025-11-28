@@ -9,3 +9,13 @@ spec:
     infisical:
       # -- Kubernetes Secret reference containing Infisical root credentials
       kubeSecretRef: "infisical-auth"
+    postgresql:
+      enabled: false
+      useExistingSecret: true
+    existingConnectionStringSecret:
+      # -- Kubernetes secret name containing the PostgreSQL connection string
+      name: "infisical-auth"
+      # -- Key name in the Kubernetes secret that holds the connection string
+      key: "DB_CONNECTION_URI"
+    redis:
+      enabled: false
