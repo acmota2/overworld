@@ -12,7 +12,6 @@ spec:
     name: dragonfly-oci
     namespace: flux-system
   install:
-    crds: CreateReplace
     createNamespace: true
     remediation:
       retries: 3
@@ -21,6 +20,9 @@ spec:
       retries: 3
   targetNamespace: db
   values:
+    crds:
+      install: true
+      keep: true
     storage:
       enabled: false # if data should persist in the future
       # schedule: "* * * * *" # Example cron schedule
