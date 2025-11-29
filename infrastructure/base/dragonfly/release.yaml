@@ -6,31 +6,23 @@ metadata:
   name: dragonfly
   namespace: flux-system
 spec:
-  interval: 30m
-  chartRef:
-    kind: OCIRepository
-    name: dragonfly-oci
-    namespace: flux-system
+  interval: 5m0s
+  chart:
+    spec:
+      chart: dragonfly-operator
+      version: "0.1.1"
+      sourceRef:
+        kind: HelmRepository
+        name: dragonfly-repo
+  targetNamespace: db
   install:
-    crds: CreateReplace
+    createNamespace: true
     remediation:
       retries: 3
   upgrade:
-    crds: CreateReplace
     remediation:
       retries: 3
-  targetNamespace: db
   values:
     crds:
       install: true
       keep: true
-    storage:
-      enabled: false # if data should persist in the future
-      # schedule: "* * * * *" # Example cron schedule
-
-    # Add any other prod-specific overrides here
-    # replicas: 1
-    # resources:
-    #   requests:
-    #     cpu: 100m
-    #     memory: 256Mi

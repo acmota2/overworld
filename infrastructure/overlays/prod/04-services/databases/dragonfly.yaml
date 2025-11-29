@@ -4,6 +4,7 @@ apiVersion: dragonflydb.io/v1alpha1
 kind: Dragonfly
 metadata:
   name: dragonfly
+  namespace: db
 spec:
   image: ghcr.io/dragonflydb/dragonfly:ubuntu-v1.33.1-amd64
   replicas: 1

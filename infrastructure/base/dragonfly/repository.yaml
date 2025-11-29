@@ -1,15 +1,9 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/ocirepository-source-v1.json
 apiVersion: source.toolkit.fluxcd.io/v1
-kind: OCIRepository
+kind: HelmRepository
 metadata:
-  name: dragonfly-oci
+  name: dragonfly-repo
   namespace: flux-system
 spec:
   interval: 5m
-  layerSelector:
-    mediaType: application/vnd.cncf.helm.chart.content.v1.tar+gzip
-    operation: copy
-  url: oci://ghcr.io/dragonflydb/dragonfly/helm/dragonfly
-  ref:
-    tag: v1.35.1
+  url: https://jacobcolvin.com/helm-charts

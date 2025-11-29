@@ -6,8 +6,10 @@ metadata:
   namespace: flux-system
 spec:
   values:
-    storage:
-      storageClassName: longhorn
-      resources:
-        requests:
-          storage: 10Gi
+    resources:
+      limits:
+        cpu: "200m"
+        memory: "256Mi"
+      requests:
+        cpu: "300m"
+        memory: "128Mi"
