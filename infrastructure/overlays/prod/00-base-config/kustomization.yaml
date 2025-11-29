@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - base-config.yaml
   - namespaces.yaml
-  - rabc/
+  - rbac/
