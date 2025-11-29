@@ -5,6 +5,7 @@ metadata:
   name: infisical
   namespace: flux-system
 spec:
+  interval: 5m
   values:
     infisical:
       # -- Kubernetes Secret reference containing Infisical root credentials
@@ -14,7 +15,7 @@ spec:
       useExistingSecret: true
       existingConnectionStringSecret:
         # -- Kubernetes secret name containing the PostgreSQL connection string
-        name: "infisical-auth"
+        name: "infisical-secrets"
         # -- Key name in the Kubernetes secret that holds the connection string
         key: "DB_CONNECTION_URI"
     redis:
