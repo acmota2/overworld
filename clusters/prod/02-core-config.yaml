@@ -27,3 +27,7 @@ spec:
       kind: DaemonSet
       name: longhorn-manager
       namespace: longhorn-system
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: platform-external-secrets
+      namespace: platform
