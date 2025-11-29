@@ -8,7 +8,7 @@ spec:
   values:
     infisical:
       # -- Kubernetes Secret reference containing Infisical root credentials
-      kubeSecretRef: "infisical-auth"
+      kubeSecretRef: "infisical-secrets"
     postgresql:
       enabled: false
       useExistingSecret: true
