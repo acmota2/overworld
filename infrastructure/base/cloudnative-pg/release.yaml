@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: cloudnative-pg-repo
-  targetNamespace: cloudnative-pg
+  targetNamespace: db
   install:
     createNamespace: true
     remediation:

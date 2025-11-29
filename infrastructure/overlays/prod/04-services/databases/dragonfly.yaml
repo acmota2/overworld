@@ -1,0 +1,18 @@
+# apps/dragonfly/dragonfly-cluster.yaml
+apiVersion: dragonflydb.io/v1alpha1
+kind: Dragonfly
+metadata:
+  name: infisical-redis
+  namespace: db
+spec:
+  image: dragonflydb/dragonfly:latest
+  replicas: 3
+  data:
+    requirepass: true
+
+  # Persistence configuration
+  storage:
+    storageClassName: longhorn
+    resources:
+      requests:
+        storage: 5Gi

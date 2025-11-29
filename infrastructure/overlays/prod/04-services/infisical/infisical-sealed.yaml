@@ -5,7 +5,7 @@ metadata:
   annotations:
     sealedsecrets.bitnami.com/cluster-wide: "true"
   name: infisical-auth
-  namespace: infisical
+  namespace: secrets
 spec:
   encryptedData:
     AUTH_SECRET: AgC9Ap7vko9GKqCppZQbiPPBLIaxxMlYKmMScVAjNldFA+st0bEhZw2GRB3jpHYPP+hEIe4IWKC6iPRu6hKOYLdF29+JkAQVMI5/jvtZpvYJ/LHiWHisIPHgzfKKI8ttQsQxZv49vPuEGcQ8GBLb5/E5iC12cTzkY4OIJ0q9uUUKRzGkghU2FKStfpkcgjQ8P/YURopIEsVCaMbRa8pMG8uqQCpTM+eqPK5UvXqTBb3ffzU/TVR0LllztuwrHaKZTRnBSDulRBXSX33WIzS0+UiXw0i5B21XMUrLc/64bbojKZiyg0KmREttBmt7L9dxrPLH4ApijEOjCxeYaPsDxXERS106muV/Csnm5tP+CPTdexhqx18PIvf/nzxNnX/ZVwtVWjrNekCen76XNIuWS8jffcCi51vK2lRM2dVZZyQu38GhszgZqRAjuY+jxDn4etcWg9Kwd3QDPpf9fDTI4K5C9BW4PvEiZHFwiue/K7qGLmy1rW4kRQf7qvyVGIhIbX9eliJ3ZFOL8GFjWZZ3yvwMch9ep322PyKFQfvP3rsNmybCtFHVNiAzjqsxai/AhGRuhkMxBFyxgYXb6kWXCl+izG/yxfrki8TEqZyCVOYDhS+HfDrWCA/fkONJvQI3AUhQpnZD0hEnTO7kmWa2o+kpuApc8GyX4h5hf1MfxLfLYhLIn9G0lE9ej/jUl3ssbXkxyTtD26N9RjA2HM8R6f+q7VJZO4xaW16Y1e19wEJTViI=
@@ -16,5 +16,5 @@ spec:
       annotations:
         sealedsecrets.bitnami.com/cluster-wide: "true"
       name: infisical-auth
-      namespace: infisical
+      namespace: secrets
     type: Opaque

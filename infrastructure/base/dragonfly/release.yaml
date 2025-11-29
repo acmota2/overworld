@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://k8s-schemas-cjso.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -17,18 +18,11 @@ spec:
   upgrade:
     remediation:
       retries: 3
-  targetNamespace: dragonfly
+  targetNamespace: db
   values:
     storage:
       enabled: false # if data should persist in the future
       # schedule: "* * * * *" # Example cron schedule
-      # storage:
-      #   s3:
-      #     endpoint: "http://minio.minio.svc:9000" # Your MinIO service
-      #     bucket: "dragonfly-backups"
-      #     region: "us-east-1" # Or your region
-      #     # You'll need a secret with AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-      #     credentialsSecret: "minio-creds"
 
     # Add any other prod-specific overrides here
     # replicas: 1

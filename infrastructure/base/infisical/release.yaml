@@ -14,7 +14,7 @@ spec:
         kind: HelmRepository
         name: infisical-repo
         namespace: flux-system
-  targetNamespace: infisical
+  targetNamespace: secrets
   install:
     createNamespace: true
     remediation:
@@ -27,7 +27,6 @@ spec:
     infisical:
       enabled: true
       name: infisical
-
       # -- Automatically migrates new database schema when deploying
       autoDatabaseSchemaMigration: true
 
