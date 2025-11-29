@@ -12,10 +12,11 @@ spec:
     name: dragonfly-oci
     namespace: flux-system
   install:
-    createNamespace: true
+    crds: CreateReplace
     remediation:
       retries: 3
   upgrade:
+    crds: CreateReplace
     remediation:
       retries: 3
   targetNamespace: db
