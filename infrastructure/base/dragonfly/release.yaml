@@ -14,6 +14,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: dragonfly-repo
+  releaseName: dragonfly
   targetNamespace: db
   install:
     createNamespace: true
