@@ -3,13 +3,12 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: ifisical-psql
+  namespace: secrets
 spec:
   instances: 2
   storage:
     size: 1Gi
     storageClass: longhorn
-  superUserSecret:
-    name: infisical-psql-superuser
   bootstrap:
     initdb:
       database: infisical

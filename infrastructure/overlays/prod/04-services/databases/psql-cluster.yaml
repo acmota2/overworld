@@ -3,6 +3,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: psql-cluster
+  namespace: db
 spec:
   instances: 2
   storage:
