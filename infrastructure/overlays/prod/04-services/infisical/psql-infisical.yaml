@@ -9,14 +9,10 @@ spec:
   storage:
     size: 1Gi
     storageClass: longhorn
-  superuserSecret:
-    name: infisical-psql-superuser
   bootstrap:
     initdb:
       database: infisical
       owner: "infisical"
       encoding: UTF8
-      secret:
-        name: psql-infisical-creds
   monitoring:
     enablePodMonitor: true

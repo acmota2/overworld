@@ -9,14 +9,10 @@ spec:
   storage:
     size: 2Gi
     storageClass: longhorn
-  superuserSecret:
-    name: psql-superuser
   bootstrap:
     initdb:
       database: appdb
       owner: appuser
       encoding: UTF8
-      secret:
-        name: psql-creds
   monitoring:
     enablePodMonitor: true
