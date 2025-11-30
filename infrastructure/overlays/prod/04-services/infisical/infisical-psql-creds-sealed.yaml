@@ -1,0 +1,19 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+  name: psql-infisical-creds
+  namespace: secrets
+spec:
+  encryptedData:
+    password: AgAprPbSC2SQBVUyfQub+4Khtthj1I9v4sdWnqMLorCLXmXZ5iZNbiJAYYRw7nVOiXNri272nZptIQAv2lGHuUm2PuBHZLawb+6n1Q1i3iUY2yre/Lmgxu7FZroxXLcwofpZ9044P8WHjBmM99ze8PPqfX1MZI/N01tUjBWCKNMiNaY+hEy0vzz+tzryOs2z9o7LllYtEAPsMB82ujEJvVtavi/maSJASb8pSxEoSX4pADerTj9DfJ6oRmOKcEHaYgh2Fyy62r+JEwLJCJEdjaZ8FfEwn99LbvA4X4ja9vRrsCVNmhD7QY/IXSTezPCcwjGZWXZbFSKVId58fy+VhK4BSggps5NCJTJCKKXHetszItkwFqfgnuLUqPCM0akwL5NlYjcqyh37UqPVkUbMr9Qt2PWi1pFlXbiyv9lHka8OmdTEDTmrW38/vIKgdmnDXuDYBJ/fb4rRZ4bgjvPhox00Hf5EUC3upIddXo7ZOhIvbuVnUqLNTgTH5L8gKAPkw5QlLMMkR+M0f0wc4IflcQbaV67uwzJSGWDmRm8yJ7YJeww7uxCGcy85tmqAJ3i2mUM2kuduyOFhOZlgrTk72vcPSLhEC/BOr+GXZjleYd2yC4Y68DeS0804fQN/LduOgl2e/j7tJZWcJeUgcLfUcjZWwgWIyExWnMJ9T2zD9DBnTfwEkqRZeLeRNGhs90JpSI+7ueyG611SL1xxECEc0J+xkPrCl/4P6rwomoZEalHwO0LVq8gG8tvW207ED3Ztiig=
+    username: AgAUwOBmQLnNuJpAkvNz0R/+D2u3uYsDEM36qgGME0lhKc4zvmto4DvOza1NSJjuNIhnUKGjwyKRYQxUXNDV9MNYS0sE/gfeyJb3+bX//843BcRqpGqjslp+yQxzf97lK2uGjhgYWKbYCeBcdYIYtGwQep0+WxMhKrDYkiQahteKIBMCh42aHaEFgDIeVLhijuV2tM4qETsXjQHF6WiKJl4IlQCIqAiZuaMCEaP1bxEUHGfBy2Ei2XJ4/DjscE2qmKT+H/EXxGDsMun37I6/srKoNZl9x3yFWQwNrjWD4/HLXjMj6mHNJdQsILRJ7us6Nx8pKaGxte2a3hx/b6/Q+f7hWXcDznXzlU/1KrIFVFDShyvbMyWe9fxoPtkMlc94N7pkU6Cqf7fXQx/cVvgt1Y0tu/CmvO1H05Zh7WpeHnE1COBbk1d64RaKTkEVOKLNL3VIM1iioaFFzwp1PFd7htdwew2ZHL7UAjKLC6w+tojLe7uwGihmi9KWb9G0Ux8JOfp8ROh7X/Oa3LsrvNdFtnPmxE9ou5+6U5dCCszk9xylzU9WENDVfsJfaALlHDZlp5vL3BxhqWyM3oWdPYHINGjwmAYTAEdelvh99KXcwzvsXYi4ENqhrDy7Cy8LTXjLHFreaNlfLOctGddEAxNx5Rt/TLJDskxH4Ic1nS/OqgA2nYsOy4UIWMow8esh2x5WRbWkmLmTEJpV1qE=
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
+      name: psql-infisical-creds
+      namespace: secrets
+    type: Opaque

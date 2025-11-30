@@ -24,6 +24,7 @@
           kubeval
           kustomize
           kustomize-sops
+          openssl
           sops
         ];
       };
