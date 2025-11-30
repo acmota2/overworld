@@ -11,8 +11,7 @@ spec:
     storageClass: longhorn
   bootstrap:
     initdb:
-      database: infisical
+      database: "infisical"
       owner: "infisical"
-      encoding: UTF8
   monitoring:
     enablePodMonitor: true
