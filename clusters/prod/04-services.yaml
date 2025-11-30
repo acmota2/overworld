@@ -22,10 +22,6 @@ spec:
       kind: Deployment
       name: dragonfly-dragonfly-operator
       namespace: flux-system
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: db-dragonfly
-      namespace: db
     - apiVersion: external-secrets.io/v1
       kind: ClusterSecretStore
       name: databases-secret-store
