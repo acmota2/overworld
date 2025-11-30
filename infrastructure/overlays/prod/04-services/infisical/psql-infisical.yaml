@@ -2,7 +2,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: ifisical-psql
+  name: infisical-psql
   namespace: secrets
 spec:
   instances: 2
