@@ -20,7 +20,7 @@ spec:
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
-      name: db-cloudnative-pg
+      name: dragonfly-dragonfly-operator
       namespace: flux-system
     - apiVersion: apps/v1
       kind: Deployment
