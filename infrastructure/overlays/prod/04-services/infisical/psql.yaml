@@ -1,8 +1,9 @@
+---
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: infisical-psql
-  namespace: infisical
+  namespace: db
 spec:
   instances: 2
   storage:
