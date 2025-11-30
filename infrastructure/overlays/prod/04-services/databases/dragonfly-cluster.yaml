@@ -8,6 +8,9 @@ metadata:
 spec:
   image: ghcr.io/dragonflydb/dragonfly:ubuntu-v1.33.1-amd64
   replicas: 1
+  args:
+    - --v=2
+    - --proactor_threads=1
   resources:
     requests:
       cpu: 200m
