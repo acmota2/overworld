@@ -14,7 +14,7 @@ spec:
   bootstrap:
     initdb:
       database: infisical
-      owner: infisical-user
+      owner: "infisical"
       encoding: UTF8
       secret:
         name: psql-infisical-creds
