@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - ../../../base/cloudnative-pg/
   - dragonfly/
-  - databases/
   - kube-prometheus-stack/
   - minio/
+  - secret-stores/
