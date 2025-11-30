@@ -26,6 +26,9 @@ spec:
       kind: Deployment
       name: db-dragonfly
       namespace: db
+    - apiVersion: external-secrets.io/v1
+      kind: ClusterSecretStore
+      name: databases-secret-store
     - apiVersion: helm.toolkit.fluxcd.io/v2
       kind: HelmRelease
       name: kube-prometheus-stack
