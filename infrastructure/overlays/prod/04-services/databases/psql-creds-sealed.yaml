@@ -16,4 +16,4 @@ spec:
         sealedsecrets.bitnami.com/cluster-wide: "true"
       name: psql-creds
       namespace: db
-    type: Opaque
+    type: kubernetes.io/basic-auth
