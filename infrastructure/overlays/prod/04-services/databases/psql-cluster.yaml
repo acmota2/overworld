@@ -2,18 +2,20 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: infisical-psql
-  namespace: db
+  name: psql-cluster
 spec:
   instances: 2
   storage:
-    size: 10Gi
+    size: 2Gi
     storageClass: longhorn
+  superUserSecret:
+    name: psql-superuser
   bootstrap:
     initdb:
-      database: infisical
-      owner: infisical
+      database: appdb
+      owner: appuser
+      encoding: UTF8
       secret:
-        name: infisical-psql-creds
+        name: psql-creds
   monitoring:
     enablePodMonitor: true

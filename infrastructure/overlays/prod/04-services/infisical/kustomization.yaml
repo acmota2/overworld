@@ -11,3 +11,4 @@ patchesStrategicMerge:
 resources:
   - infisical-sealed.yaml
   - external-secret.yaml
+  - psql-ifisical.yaml
