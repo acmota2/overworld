@@ -19,6 +19,7 @@
           k3d
           kube-linter
           kubectl
+          kubectl-cnpg
           kubernetes-helm
           kubeseal
           kubeval
