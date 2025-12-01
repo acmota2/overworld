@@ -8,9 +8,17 @@ metadata:
 spec:
   image: ghcr.io/dragonflydb/dragonfly:ubuntu-v1.33.1-amd64
   replicas: 2
+  env:
+    - name: MAX_MEMORY
+      valueFrom:
+        resourceFieldRef:
+          resource: limits.memory
+          divisor: 1Mi
   args:
-    - --v=2
+    - --maxmemory=$(MAX_MEMORY)Mi
     - --proactor_threads=1
+    - --cluster_mode=emulated
+    - --default_lua_flags=allow-undeclared-keys
   resources:
     requests:
       cpu: 300m
