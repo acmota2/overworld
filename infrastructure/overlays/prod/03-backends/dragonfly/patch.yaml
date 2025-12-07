@@ -7,9 +7,8 @@ metadata:
 spec:
   values:
     resources:
-      limits:
-        cpu: "200m"
-        memory: "256Mi"
       requests:
         cpu: "300m"
-        memory: "128Mi"
+        memory: "256Mi"
+      limits:
+        memory: "512Mi"
