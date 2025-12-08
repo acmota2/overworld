@@ -16,3 +16,10 @@ spec:
       encoding: UTF8
   monitoring:
     enablePodMonitor: true
+  resources:
+    requests:
+      cpu: 200m
+      memory: "1Gi"
+    limits:
+      cpu: 1000m
+      memory: "1.5Gi"
