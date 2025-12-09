@@ -13,3 +13,10 @@ spec:
         accessModes:
           - "ReadWriteOnce"
         size: 10Gi
+    resources:
+      requests:
+        memory: "1.5Gi"
+        cpu: "250m"
+      limits:
+        memory: "2Gi"
+        cpu: "500m"

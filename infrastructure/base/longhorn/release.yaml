@@ -21,3 +21,10 @@ spec:
     persistence:
       defaultClass: true
       defaultClassReplicaCount: 2
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+      limits:
+        memory: "512Mi"
+        cpu: "500m"

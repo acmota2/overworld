@@ -58,8 +58,10 @@ spec:
         annotations: {}
         type: ClusterIP
 
-      # resources:
-      #   limits:
-      #     memory: 1024Mi
-      #   requests:
-      #     cpu: 350m
+      resources:
+        requests:
+          cpu: 350m
+          memory: 512Mi
+        limits:
+          cpu: 500m
+          memory: 1024Mi
