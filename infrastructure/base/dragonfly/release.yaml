@@ -27,9 +27,29 @@ spec:
     crds:
       install: true
       keep: true
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 65534
+      fsGroup: 65534
+    rbacProxy:
+      resources:
+        limits:
+          cpu: 100m
+          memory: 64Mi
+        requests:
+          cpu: 10m
+          memory: 32Mi
+    manager:
+      resources:
+        limits:
+          cpu: 500m
+          memory: 128Mi
+        requests:
+          cpu: 10m
+          memory: 64Mi
     resources:
       requests:
-        cpu: "500m"
+        cpu: "10m"
         memory: "256Mi"
       limits:
         cpu: "500m"
