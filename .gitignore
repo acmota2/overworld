@@ -2,3 +2,4 @@
 *.agekey
 *.tok
 *.secret.*
+.direnv
