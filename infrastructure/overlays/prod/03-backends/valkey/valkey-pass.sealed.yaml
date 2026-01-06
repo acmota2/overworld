@@ -1,0 +1,14 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: valkey-password
+  namespace: db
+spec:
+  encryptedData:
+    password: AgBZYnRMSfEhp4YhWgK29Wmn1tgmp1UBa2CG49zZ/hPZd+OLWMIk9tSFqxO3laIQNmWualYl1hScusooejuMD9sPP2zzwg+GrwzPOhym8sEgFAJm/o+4qfzfOJsUoSNUtQ3G720gUAz8oCNWozBomPF8Tim65UQgJ63HHFbzSPikyUUDICKjAaak/IaLtvcBnGUVbhPH/F9/xGZKk6vttU3bs2JlNwCcT51Y7G4ontg2PoPj+PBXnZBo4K+48f7G5W+OhZ7F/OirG7mCrPfQMKNGo5wm61+GfQ11R2JKItf89RGl8ucAytB/0AZ2cgTb05lWL/H0AFjlYwYJtZ0mCEublLaejljbAldq9EUJW+0FTnuwK1RE+5RzEyljL06XVr4HO/cBq0UGWyKkX61UB3wmG+zuYw6GvdNTPSkL+fINQI+/Z66gLSQkpZ3Rr4p2pGH/nxqA6PWdhnfDtVEkq37vthWuSu3VNa3xOT10LUEdw6NqNUkf+Uz6Uc1N25VCEvrOivO7T26wUDuXcNmGbH8btPiMHESqObZvLN4R3Wj1Iy9MJgDRnteMBqaNjeyH2Cx8mHnfbV8tJ5n7xCBp6Bw/KZmP0Zn780u21mHtTc7ccRcY4bEmIThcsFpgfK0IeoFg/wa9W40xDwUo5GAA7Nrmd+UrqJnADY1CCyw3XILHx/ZvNAcNl7bYKI6hpNJRTTXq9N5VznpDXBhKbWNyeIrhZfT/QN2LvDc=
+  template:
+    metadata:
+      name: valkey-password
+      namespace: db
+    type: Opaque
