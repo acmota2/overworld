@@ -16,7 +16,7 @@ spec:
   postBuild:
     substituteFrom:
       - kind: ConfigMap
-        name: base-config
+        name: base-map
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment

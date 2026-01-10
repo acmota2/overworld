@@ -22,4 +22,4 @@ spec:
   postBuild:
     substituteFrom:
       - kind: ConfigMap
-        name: base-config
+        name: base-map
