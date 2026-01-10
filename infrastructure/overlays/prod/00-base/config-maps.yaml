@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: base-map
+  namespace: flux-system
+data:
+  NFS_SERVER_ADDRESS: "nfs.voldemota.xyz"
+  INTERNAL_ADDRESS: "home.voldemota.xyz"
+  EXTERNAL_ADDRESS: "voldemota.xyz"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom
+  namespace: kube-system
+data:
+  svc-voldemota.server: |
+    svc.voldemota.xyz:53 {
+        errors
+        cache 30
+        forward . 192.168.1.4
+    }

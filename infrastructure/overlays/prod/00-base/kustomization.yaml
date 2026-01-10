@@ -8,6 +8,6 @@ resources:
   - ../../../base/ingress-nginx/
   - ../../../base/metallb/
   - ../../../base/sealed-secrets/
-  - base-map.yaml
+  - config-maps.yaml
   - namespaces.yaml
   - rbac/
