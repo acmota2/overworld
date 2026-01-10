@@ -5,9 +5,10 @@ metadata:
   name: base-map
   namespace: flux-system
 data:
-  NFS_SERVER_ADDRESS: "nfs.voldemota.xyz"
-  INTERNAL_ADDRESS: "home.voldemota.xyz"
   EXTERNAL_ADDRESS: "voldemota.xyz"
+  INTERNAL_ADDRESS: "home.voldemota.xyz"
+  NFS_SERVER_ADDRESS: "nfs.svc.voldemota.xyz"
+  SERVICES_ADDRESS: "svc.voldemota.xyz"
 ---
 apiVersion: v1
 kind: ConfigMap
