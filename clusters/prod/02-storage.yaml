@@ -18,3 +18,7 @@ spec:
       kind: Deployment
       name: networking-external-dns-internal
       namespace: networking
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: base-map
