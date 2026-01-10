@@ -13,6 +13,17 @@ spec:
         accessModes:
           - "ReadWriteOnce"
         size: 10Gi
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          cert-manager.io/cluster-issuer: lets-encrypt
+        hosts:
+          - grafana.home.voldemota.xyz
+        tls:
+          - secretName: grafana-tls
+            hosts:
+              - grafana.home.voldemota.xyz
     resources:
       requests:
         memory: "1.5Gi"
