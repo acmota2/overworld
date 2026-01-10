@@ -12,6 +12,5 @@ spec:
       host: longhorn.home.voldemota.xyz
       annotations:
         kubernetes.io/ingress.class: nginx
-        cert-manager.io/cluster-issuer: lets-encrypt
       tls: true
-      tlsSecret: longhorn-tls
+      tlsSecret: home-tls

@@ -20,7 +20,7 @@ spec:
     remediation:
       retries: 3
     crds: CreateReplace
-  targetNamespace: cert-manager
+  targetNamespace: networking
   values:
     fullnameOverride: cert-manager-controller
     crds:

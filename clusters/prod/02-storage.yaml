@@ -2,18 +2,18 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: 01-core
+  name: 02-storage
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ../../infrastructure/overlays/prod/01-core
+  path: ../../infrastructure/overlays/prod/02-storage
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: 00-base-config
-  postBuild:
-    substituteFrom:
-      - kind: ConfigMap
-        name: base-config
+    - name: 01-base-config
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: platform-external-dns-internal

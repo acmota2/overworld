@@ -12,7 +12,13 @@ spec:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: 02-core-config
+    - name: 02-storage
+  healthChecks:
+    # TODO: check this one in the helm release
+    - apiVersion: apps/v1
+      kind: DaemonSet
+      name: longhorn-manager
+      namespace: longhorn-system
   postBuild:
     substituteFrom:
       - kind: ConfigMap

@@ -2,31 +2,22 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: 02-core-config
+  name: 01-base-config
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ../../infrastructure/overlays/prod/02-core-config
+  path: ../../infrastructure/overlays/prod/01-base-config
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: 01-core
-  postBuild:
-    substituteFrom:
-      - kind: ConfigMap
-        name: base-config
+    - name: 00-base
   healthChecks:
     - apiVersion: apps/v1
       kind: DaemonSet
       name: platform-metallb-speaker
       namespace: platform
-    # TODO: check this one in the helm release
-    - apiVersion: apps/v1
-      kind: DaemonSet
-      name: longhorn-manager
-      namespace: longhorn-system
     - apiVersion: apps/v1
       kind: Deployment
       name: platform-external-secrets

@@ -14,11 +14,10 @@ spec:
       enabled: true
       annotations:
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-        cert-manager.io/cluster-issuer: letsencrypt-dns
       hosts:
         - infisical.home.voldemota.xyz
       tls:
-        - secretName: infisical-tls
+        - secretName: home-tls
           hosts:
             - infisical.home.voldemota.xyz
     postgresql:

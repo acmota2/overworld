@@ -7,3 +7,6 @@ bases:
 
 patchesStrategicMerge:
   - patch.yaml
+
+resources:
+  - pi-hole.sealed.yaml

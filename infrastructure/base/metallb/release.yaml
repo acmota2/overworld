@@ -21,8 +21,8 @@ spec:
     remediation:
       remediateLastFailure: true
   interval: 1h0m0s
-  storageNamespace: platform
-  targetNamespace: platform
+  storageNamespace: networking
+  targetNamespace: networking
   values:
     resources:
       requests:

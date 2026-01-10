@@ -16,7 +16,7 @@ spec:
   install:
     createNamespace: true
   interval: 1h0m0s
-  targetNamespace: ingress-nginx
+  targetNamespace: networking
   values:
     fullnameOverride: ingress-nginx
     resources:

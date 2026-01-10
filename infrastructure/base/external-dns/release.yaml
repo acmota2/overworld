@@ -15,7 +15,7 @@ spec:
         name: external-dns
         namespace: flux-system
       interval: 5m
-  targetNamespace: platform
+  targetNamespace: networking
   values:
     resources:
       requests:
