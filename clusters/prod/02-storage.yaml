@@ -16,4 +16,5 @@ spec:
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
-      name: platform-external-dns-internal
+      name: networking-external-dns-internal
+      namespace: networking
