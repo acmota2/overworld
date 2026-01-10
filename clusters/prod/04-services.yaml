@@ -5,7 +5,7 @@ metadata:
   name: 04-services
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 2m30s
   path: ../../infrastructure/overlays/prod/04-services
   prune: true
   sourceRef:

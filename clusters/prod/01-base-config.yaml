@@ -5,7 +5,7 @@ metadata:
   name: 01-base-config
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 2m30s
   path: ../../infrastructure/overlays/prod/01-base-config
   prune: true
   sourceRef:

@@ -5,7 +5,7 @@ metadata:
   name: 03-backends
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 2m30s
   path: ../../infrastructure/overlays/prod/03-backends
   prune: true
   sourceRef:
