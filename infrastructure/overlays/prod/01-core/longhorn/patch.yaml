@@ -5,6 +5,13 @@ metadata:
   name: longhorn-release
   namespace: flux-system
 spec:
+  interval: 1h0m0s
   values:
     ingress:
-      enabled: false
+      enabled: true
+      host: longhorn.home.voldemota.xyz
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        cert-manager.io/cluster-issuer: lets-encrypt
+      tls: true
+      tlsSecret: longhorn-tls

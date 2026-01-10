@@ -11,3 +11,20 @@ spec:
         existingClaim: minio-pvc
         globalMounts:
           - path: /data
+    ingress:
+      main:
+        enabled: true
+        className: nginx
+        annotations:
+          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+          nginx.ingress.kubernetes.io/proxy-body-size: "0"
+          cert-manager.io/cluster-issuer: letsencrypt-dns
+        hosts:
+          - host: minio.home.voldemota.xyz
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - secretName: minio-tls
+            hosts:
+              - minio.home.voldemota.xyz

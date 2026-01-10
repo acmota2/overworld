@@ -11,7 +11,16 @@ spec:
       # -- Kubernetes Secret reference containing Infisical root credentials
       kubeSecretRef: "infisical-secrets"
     ingress:
-      enabled: false
+      enabled: true
+      annotations:
+        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+        cert-manager.io/cluster-issuer: letsencrypt-dns
+      hosts:
+        - infisical.home.voldemota.xyz
+      tls:
+        - secretName: infisical-tls
+          hosts:
+            - infisical.home.voldemota.xyz
     postgresql:
       enabled: false
       useExistingSecret: true
