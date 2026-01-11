@@ -14,6 +14,16 @@ spec:
             env:
               MINIO_SERVER_URL: https://minio.home.voldemota.xyz
               MINIO_BROWSER_REDIRECT_URL: https://minio-ui.home.voldemota.xyz
+              MINIO_ROOT_USER:
+                valueFrom:
+                  secretKeyRef:
+                    name: minio-creds
+                    key: username
+              MINIO_ROOT_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: minio-creds
+                    key: password
     persistence:
       data:
         existingClaim: minio-pvc
