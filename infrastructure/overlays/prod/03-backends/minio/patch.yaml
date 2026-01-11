@@ -5,6 +5,7 @@ metadata:
   name: minio
   namespace: flux-system
 spec:
+  interval: 1h
   values:
     controllers:
       minio:
@@ -18,22 +19,5 @@ spec:
         existingClaim: minio-pvc
         globalMounts:
           - path: /data
-    ingress:
-      main:
-        enabled: true
-        className: nginx
-        annotations:
-          nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-          nginx.ingress.kubernetes.io/proxy-body-size: "0"
-        hosts:
-          - host: &host minio-ui.home.voldemota.xyz
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  name: platform-minio
-                  port: http
-        tls:
-          - secretName: home-tls
-            hosts:
-              - *host
+    ingress: {}
+    route: {}

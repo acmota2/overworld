@@ -11,7 +11,7 @@ spec:
     policy: upsert-only
     registry: noop
     sources:
-      - ingress
+      - gateway-httproute
     domainFilters:
       - home.voldemota.xyz
     # pihole:

@@ -20,7 +20,6 @@ spec:
   values:
     persistence:
       defaultClass: true
-      defaultClassReplicaCount: 2
     resources:
       requests:
         memory: "256Mi"
