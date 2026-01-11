@@ -19,5 +19,9 @@ spec:
         existingClaim: minio-pvc
         globalMounts:
           - path: /data
-    ingress: {}
-    route: {}
+    ingress:
+      main:
+        enabled: false
+    route:
+      main:
+        enabled: false
