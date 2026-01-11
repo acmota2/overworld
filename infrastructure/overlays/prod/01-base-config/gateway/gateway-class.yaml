@@ -8,5 +8,5 @@ spec:
   parametersRef:
     group: gateway.envoyproxy.io
     kind: EnvoyProxy
-    name: internal-ptoxy
+    name: internal-proxy
     namespace: networking
