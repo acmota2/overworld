@@ -8,5 +8,5 @@ spec:
   provider:
     type: Kubernetes
     kubernetes:
-      service:
+      envoyService:
         type: LoadBalancer
