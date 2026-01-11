@@ -5,14 +5,14 @@ metadata:
   annotations:
     sealedsecrets.bitnami.com/cluster-wide: "true"
   name: cert-manager-token
-  namespace: cert-manager
+  namespace: networking
 spec:
   encryptedData:
-    api-token: AgCY7pWnph69vl/6vmLe06YPM6lzVizaU161HlLDrxMdxpwVu48BCC0Vf3zSmsKK2ZdXra6V9buqM9vx4d+BF+nY7KK2pmNhIwONdMwL4X81aRMw7dqQ8utDYuAjJ4vP6LVXvarTcSfjGQxgJNgEalkXmLsyOWrNAH8AnvycZ8KZqin4j1oevKwMrxgJBMTPfNkeBNOb7O4sTU9aXUYLUJZSBJXXs6/lILanMiy24UGP7XGdkv15Hdbk3oI2bzhO6Jj0KPETEuwW9V/yAtlMyZVQ2+pBnijL8Y4xvKrsWKde9143fQfvuK/b+zFJ7agw5uz8ratHmGNJQyCqxFHGk3uJkEfPdGvIYOlmWsPO+xELMoYaAPNYq6CEceRDpM7LkYLF4xyo2Fz7RpSM9AZXvc4l+6M5bSBOaD8cMweRO3K7Lb4JNkHnQeMh4nabpVtonfOO9z+N7PrNIJ9Hh+nve1QMIF2kLe5dZ5VEFX8YOvSkYWkHNejr0gf+w/SGixTAO22og4rte4WV9zOzIsrQ0dE0Yxz8PqwyChoP+HLvYzDIJMK8MSwkPQjOcVsI8DF8qdwsn1I/QjuNF1ZC6aItM1/vbpptuKDykerI2K68XVaE7vpbauzwJc7MMFezOm00lBY5c2uKxSedQJbepjJTCspJfyvOjNRqH1ZSXgnHtsPnquUGukLx+D1jMfsAiQdx4uWWHiOccClTi5h3DrqCCN3ekpfCWFcBw1C+S4wgByVYOYJRyPhOwXk7
+    api-token: AgCYZdI327Rb2BYZVHsy+/1UTJud2b4qAwQkN2UNpHMj2jySRYEGjcekG0oazdJHYrSs5sr5tlHHlQ2zweTFAQUXyEYvTfGnf0ZqQmCK+bGTzpevoYWULWoxHJMsy17ZFWH59YigPamHQIGWozDp/Nl4qmZfeCYUsUhGMRpqlbiw8SCoKLBnulkzqwCqNmWcXdPItK/bya0zLh5GUH+1GX+pwa3yZeYYPDoRvHtNVs06d+MPKYxn0jqlH/nBfVHrDmyGsCTBLd+qdz28z2PY5jIquRkTNYD1TKCWLGKgpA3o5SditdcMsT6zDE7YAcjaWOsjZGKzytBO03rt4FBorpns8GgYoX8qotroCLPz1B6yqOVhcEpKN5Ty/4WO4vlUkqSOelswEu9osH4uCLcSIUpzVEGM008QKDr4SA6xod7IF3oQZ3Bzr7wgVvck/17QWJTlvfxC177ZonsKT3bhu15B/LHzwcEXf+qIcPduaXYrYea/hcHcYwA9+nkZXulh5z0BM2dOKTkLzugKrv2jSBC3YjBVHZ+yOgRjaVCcR0LsgizgslNgCSbAcBmVhU+5IvMmrRnbFU9Jprmx26RHB9tZAjADpqSiqiuMbgBpC646VIAxaoLvyao8TZvLh+OE9AUSijOWoCle5BVq1VxQstkEWLI1hyJhzsLgQhjGAx2IQVWQEXqmsos6q8jsrKZgR2goLk5pv7IAEcL2wnnRKQHHOvvD2nBEDZ1FC/YCERkdJiBCRDHaOjUR
   template:
     metadata:
       annotations:
         sealedsecrets.bitnami.com/cluster-wide: "true"
       name: cert-manager-token
-      namespace: cert-manager
+      namespace: networking
     type: Opaque

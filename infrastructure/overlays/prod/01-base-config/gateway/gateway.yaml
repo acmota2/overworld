@@ -19,5 +19,5 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - name: home-wildcard
+          - name: home-tls
             kind: Secret
