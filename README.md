@@ -1,66 +1,67 @@
 # Overworld: declarative Kubernetes homelab
 
-This repository documents the migration of my homelab services from a NixOS-based Docker Compose system ([`Blaze`](https://github.com/acmota2/blaze)) to a fully declarative, GitOps-managed Kubernetes cluster. `Blaze` will continue to be the base for the k8s machine cofiguration.
+This repository represents the migration of my homelab services from a NixOS and podman based setup to a fully declarative, FluxCD managed Kubernetes cluster. NixOS remains the base for machine configuration and provisioning, while Kubernetes is used as the runtime and orchestration layer.
 
-The primary goal is to build a robust and reproducible environment for self-hosting services, managed 100% via [FluxCD](https://fluxcd.io/). This project also serves as an r&d platform for exploring declarative configuration, service discovery, and cloud-native best practices.
+The project exists both as a personal platform and as a place to explore practical Kubernetes operations, even when with limited hardware and storage.
 
-## Project Goals
-
-* **Declarative Migration:** Evolve from a single-node declarative system (NixOS) to a distributed, cluster-native one (Kubernetes).
-* **100% GitOps:** All cluster state (applications and infrastructure) must be defined in this Git repository and reconciled by FluxCD.
-* **Platform Agnostic:** The core stack is intended to run on any K8s distribution (currently K3s).
-* **Reproducibility:** A new cluster should be bootstrap-able from this repository with minimal manual steps.
+[`Blaze`](https://github.com/acmota2/blaze) continues to exist as the base system configuration used to provision the machines that run this cluster.
 
 ---
 
-## Core Infrastructure Stack
+## Scope and constraints
 
-This is the stable foundation of the `prod` cluster.
+This cluster currently runs on a small amount of hardware, with roughly 20 GB of RAM available to Kubernetes, and a single-disk storage setup. Those constraints directly influence design decisions: simpler control planes, conservative storage management, and avoiding components that assume unconstrained hardware.
 
-* **Distribution:** [K3s](https://k3s.io/)
-* **GitOps:** [FluxCD](https://fluxcd.io/)
-* **Load balancing:** [Metallb](https://metallb.universe.tf/)
-* **Ingress controller:** [ingress-nginx](https://kubernetes.github.io/ingress-nginx/) (currently evaluating Traefik for performance and configuration)
-* **TLS certificates:** [cert-manager](https://cert-manager.io/)
-* **Storage:** [Longhorn](https://longhorn.io/)
-
-## Platform Services
-
-This is the evolving stack of services being built on top of the core infrastructure to support stateful, production-grade applications.
-
-* **Database:** [CloudNativePG](https://cloudnative-pg.io/) (PostgreSQL Operator)
-* **In-Memory Cache:** [Dragonfly](https://www.dragonflydb.io/) (High-performance Redis-compatible store)
-* **S3-Compatible Storage:** [MinIO](https://min.io/) (For database snapshots and application object storage)
-* **Service Discovery:** [external-dns](https://github.com/kubernetes-sigs/external-dns) (Syncing Ingress records to an internal Pi-hole DNS)
-* **Secrets Management:** A three-tiered strategy:
-    * **`SOPS` / `Sealed Secrets`:** For root credentials (e.g. infisical's own token).
-    * **`Infisical`:** Central management for all application secrets.
-    * **`External Secrets Operator`:** Operator to pull secrets from Infisical and sync them as `Secret` objects in the cluster.
+The only manual step required to bootstrap a fresh cluster from this repository is re-sealing secrets. Everything else is reconciled automatically.
 
 ---
 
-## Current Status
+## Cluster stack
 
-### Deployed & Stable
-* **Core Services:** The entire "Core Infrastructure Stack" (`metallb`, `cert-manager`, `longhorn`) is stable and reconciling via Flux.
-* **Platform Services:** The "Advanced Platform Services" (`CloudNativePG`, `Dragonfly`, `MinIO`, `external-dns`) are deployed, reconciling, and ready for application consumption.
+The cluster is built around a small set of foundational components that everything else depends on:
 
-### Under Active Development
-* **External DNS**: currently not working as expected; investigating issues with Pi-hole integration or complete ingress process.
-* **Secrets management**: working on integrating `Infisical` with the `External Secrets Operator` to pull secrets into the cluster.
-* **CloudNativePG**: fine-tuning configuration for high availability and backup strategies using `MinIO`.
+- **Kubernetes distribution:**
+  - k3s (prod)
+- **GitOps:** FluxCD
+- **Load balancing:** MetalLB
+- **Networking:** Kubernetes Gateway API (Envoy Gateway)
+- **TLS:** cert-manager (DNS-01)
+- **Storage:** Longhorn
 
-### Future Roadmap
-* **R&D sandbox (dev cluster):** Build the `clusters/dev` environment using [k3d](https://k3d.io/). This will serve as a testing environment for new technologies and applications.
-* **Promote to prod:** Approved applications and services from the `dev` cluster will be promoted to the `prod` cluster.
-* **Fix monitoring:** Migrate the `kube-prometheus-stack` to use the new `CloudNativePG` instance for its Grafana database and the `MinIO` instance for long-term storage.
-* **Deploy `Immich`:** Redeploy the `Immich` application declaratively via Flux, configured to use `CloudNativePG` for its database and `MinIO` for object storage.
-* **Deploy previous stack from `Blaze`:** Migrate other applications from the previous `Blaze` homelab to the new Kubernetes cluster.
-* **Integrate secrets:** Migrate application secrets into `Infisical` to be pulled into the cluster via the `External Secrets Operator`.
+To support stateful applications, there's also the following shared services:
+
+- **PostgreSQL:** CloudNativePG  
+- **In-memory store:** Dragonfly  
+- **Object storage:** MinIO  
+- **DNS automation:** external-dns (Pi-hole integration)  
+- **Secrets:** Infisical + External Secrets Operator, with SOPS / Sealed Secrets for bootstrap credentials  
+
+Applications are treated separately and are expected to grow over time, so they are not listed here.
+
+---
+
+## Current state
+
+The cluster reconciles cleanly via Flux and is actively used. Networking, TLS, storage, and secret distribution are all handled declaratively. Services like MinIO, Infisical, Longhorn, and monitoring components are exposed via the Gateway API and secured with proper certificates.
+
+This repository represents a working baseline that can be rebuilt.
+
+---
+
+## Roadmap
+
+Future work is intentionally incremental and influenced by currently available:
+
+- Introduce a lightweight `dev` cluster that can run locally for testing changes before promotion.
+- Gradually migrate additional services onto the platform as storage and capacity allow.
+- Improve monitoring persistence and backup strategies once underlying storage constraints are addressed.
+- Continue reducing bootstrap friction where possible.
+
+There is no fixed end state, the platform will evolve from a working baseline.
+
+---
 
 ## Inspirations
 
-This project's architecture did not come out of a vacuum. It was heavily inspired by the work of:
-
-* My friend's Talos-based Kubernetes cluster, [athena-ops](https://github.com/eivarin/athena-ops), which served as the initial inspiration for running a homelab in Kubernetes.
-* [DreamsOfAutonomy (YouTube Channel)](https://www.youtube.com/@dreamsofautonomy) - For the foundational concepts on running K3s declaratively on NixOS, which was a massive help in bridging the `Blaze` and `Overworld` projects.
+- [athena-ops](https://github.com/eivarin/athena-ops), a Talos-based Kubernetes cluster that helped shape how I think about treating a homelab as a real platform.
+- [Dreams of Autonomy](https://www.youtube.com/@dreamsofautonomy), particularly around running Kubernetes on NixOS planes.

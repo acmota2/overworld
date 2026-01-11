@@ -1,0 +1,271 @@
+## v0.1.0 (2026-01-11)
+
+### BREAKING CHANGE
+
+- Removed ingress-nginx
+- Frontends will no longer work
+
+### Feat
+
+- **ingress-nginx**: completely removed ingress from cluster
+- **routes**: added http routes to all relevant services and disabled ingress
+- **gateway**: added envoy gateway
+- **core-dns**: added connection to internal dns for services
+- new separation and reconciliation
+- added ingresses and dns
+- **kube-prometheus-stack**: udpated major version
+- **secrets**: resealed all secrets
+- re-added kubeseal util
+- changed nfs address
+- **infrastructure**: adding valkey
+- devx improvements
+- added resource limits to all services in use
+- resource limits definition for databases
+- **dragonfly**: removed multiple replicas
+- **psql**: added credentials
+- **infisical**: secrets base
+- **eso**: added external secrets
+- removed ingresses
+- **monitoring**: added kube-prometheus-stack
+- added external-secrets
+- **infisical**: added infisical for secrets
+- **minio**: started adding minio for S3 compatibility
+- **managed-db**: common source for managing db
+- **apps-reqs**: apps can have requirements that will be applied before
+- **immich**: declared with helm now
+- **prod**: moved everythig to prod
+- **prod**: created prod cluster (same as dev)
+- **psql**: adding secrets
+- **flake**: dev shell with more packages
+- **sops**: secret management using sops
+- **immich**: moving immich to k8s
+- **longhorn**: adding longhorn to platform
+- **sops**: secret management
+- **longhorn**: adding longhorn for managing local storage
+- **flake**: adding new packages to dev shell
+- **photos**: adding immich
+- **flake**: adding nix flake support for dev shell
+
+### Fix
+
+- **grafana-http-route**: corrected service name
+- corrected cert-manager workflow and resealed all secrets
+- **envoy-gateway**: fixed certificate reference
+- **envoy-gateway**: fixed gatewayclass controller
+- typo
+- **envoy**: connected proxy to gateway class
+- **EnvoyProxy**: corrected for current version
+- **envoy-gateway**: added envoy proxy
+- **external-dns**: made waiting time shorter
+- **envoy-gateway**: corrected namespace for helm release
+- **envoy-gateway**: corrected helm release to be oci repository compatible
+- **envoy-gateway**: removed gateway class from kustomization
+- **gateway**: moved gateway class to install after gateway
+- **minio**: corrected ingress and route expectations
+- **envoy-gateway**: corrected gateway class
+- **minio**: fixed ingress
+- **02-storage**: added postbuild for base-map to access nfs server
+- corrected config map to point to right address
+- base-config -> base-map
+- **03-backends**: corrected kustomization paths
+- corrected health check for metallb
+- switched health checks to correct namespace
+- corrected namespace for network components
+- typo with file name
+- **ingress-nginx**: removed custom namespace
+- corrected file names in base prod kustomization
+- **secrets**: gave correct names in kustomization
+- **direnv**: removed .direnv related files
+- **dragonfly**: corrected prod helm release
+- **dragonfly**: cpu limit to be cpu request
+- **dragonfly**: running in emulated mode with max memory set
+- **infisical**: changed from ssl in db uri
+- **infisical**: eso correct encoding
+- **database**: correcting infisical database authentication
+- removed reference to infisical database in kustomization
+- **infisical**: database secrets
+- **db-authentication**: corrected secret type for databases
+- **infisical**: corrected namespace in database uri
+- **infisical**: correct svc fqdn
+- **infisical**: correct psql uri
+- **infisical**: corrected database password
+- **databases**: corrected password
+- **infisical**: db config
+- **secrets**: corrected passords to natively be base64
+- db url for infisical
+- **infisical**: corrected service name in psql
+- **infisical**: secrets
+- **03-backends**: corrected folder name
+- **eso**: fixing secret pulling for infisical
+- **04-services**: corrected namespace
+- **databases**: superuser key
+- **databases**: namespaces
+- **04-services**: removed old deployment
+- **psql**: creating clusters
+- timings for secret store
+- **db-secret-store**: corrected servive account name
+- **infisical**: db uri
+- **04-services**: fixed dragonfly name
+- infisical integration
+- **dragonfly**: cluster config
+- **dragonfly**: shorter release name
+- **dragonfly**: using correct chart
+- **dragonfly**: crds
+- **dragonfly**: crds
+- **dragonfly**: added crds creation
+- infisical dragonfly connection
+- removed duplicated namespace
+- creating secrets namespace explicitly
+- typo
+- **infisical**: fixed entire secrets setup
+- **infisical**: created secret refs for infisical
+- **infisical-prod**: fixing infisical secret
+- **04-services**: correcting external secret
+- **eso**: added ca bundle
+- **eso**: corrected store configuration
+- **eso**: api version
+- **02-core-config**: added external secrets health check
+- **eso**: api version
+- **external-secrets**: added operator to kustomizations
+- **dragonfly**: added release to kustomization
+- **04-services**: corrected api version
+- **health-checks**: changed namespaces to correct one
+- **secrets**: corrected secrets for this cluster
+- **infisical**: put secret in correct place of kustomization
+- **infisical**: added the secret
+- fixed health checkss
+- **ingress-nginx**: temporarily deactivated
+- **grafana**: added larger timeout
+- **secrets**: removed immich's secret
+- trying to make ingress work
+- typos
+- **external-dns**: corrected version
+- **externaldns-pi-hole**: corrected chart settings
+- **ingress**: made sure nginx is the class name
+- **cert-manager**: fixing certificates
+- **minio**: tls settings
+- corrected retry logic
+- **ingress**: added nginx ingress class
+- **monitoring**: changed monitoring repository schema
+- **monitoring**: making grafana wait an absurd ammount of time
+- **monitoring**: trying to slow down grafana checking
+- **monitoring**: namespaces
+- **monitoring**: automatic namespace creation
+- **kustomization**: made monitoring discoverable
+- **infisical**: encryption key format
+- **infisical**: new secret
+- **infisical**: dependencies
+- **infisical**: kustomizations
+- **infisical**: dependencies should be fixed now
+- fixed typo in infisial file name
+- all depends on pre requisites
+- **infisical**: corrected helm chart
+- **infisical**: fixing ingress
+- **minio**: new permissions
+- changed minio user id
+- added pv to kustomization
+- **dns**: will only write to DNS
+- fixed chart ref
+- minio should be in platform namespace
+- corrected namespace
+- revised namespaces
+- added namespace
+- corrected api version
+- added minio to kustomization
+- **dragonfly**: made helm values make sense
+- **dragonfly**: added namespace to repository
+- **dragonfly**: made namespaces match
+- **dragonfly**: added repository as OCI
+- **dragonfly**: corrected chart name (again)
+- **dragonfly**: namespace for dragonfly to run on
+- **dragonfly**: corrected chart name
+- **dragonfly**: pointing to the correct chart
+- **dragonfly**: fixed repository syntax
+- **dragonfly**: url typo
+- **dragonfly**: corrected repository
+- **dragonfly**: corrected repository
+- **dragonfly**: removed release from initial phase
+- **dragonfly**: corrected dragonfly
+- **dragonfly**: added longhorn storage
+- **db**: corrected imports and namespace settings
+- **dragonfly**: correct repository name
+- **kustomization**: typo in api
+- **nginx**: admission webhook to true
+- **longhorn**: corrected tls
+- **tls**: fixed certificate
+- **secrets**: updated secrets in base64
+- **immich**: server ingress
+- **immich**: release api
+- **kustomization**: rewrote chain dependencies for apps
+- **secrets**: removed immich secrets
+- **apps**: pointing to the right files
+- flux dependencies
+- **config**: namespace declared where it shouldn't
+- **kustomization**: referece to base config
+- **base-config**: all prod now depends on its base config
+- **ingress-nginx**: name fix
+- **ingress-nginx**: reverted storage control
+- **longhorn**: ingress name
+- **secrets**: namespaces
+- **secrets**: db secret
+- **secrets**: updated immich db secret name
+- **secrets**: matching names
+- **secrets**: correcting key
+- **config-map**: added substitute from
+- **secrets**: remade secrets
+- **secrets**: force service account creation
+- **secrets**: clusterwide access
+- **secret**: cleaned up db.env
+- **secrets**: immich config secret with sealed secret now
+- **longhorn**: tls
+- **health-checks**: removed reference to future resource
+- **immich**: added pv to be found
+- **immich**: readding
+- **namespaces**: corrected namespace for immich storage
+- **apps**: file path
+- **apps**: added kustomization to path
+- **platform**: name mismatch
+- **longhorn-health-check**: changed from looking for a deployment to look for a daemon set
+- **kustomization**: referred to base-config
+- **typo**: ingress-nginx
+- **nginx**: strange names from this controller
+- **nginx**: changed controller name
+- **names**: corrected release names
+- **Kustomization**: correcting controllers
+- **Kustomization**: yet another folder missing
+- **Kustomization**: another kustomization added
+- **kustomization**: learned how to read error messages
+- **kustomizations**: pointing to the right directory
+- corrected directory dependency
+- **typo**: apiVesrion -> apiVersion
+- **config-map**: substitute pattern corrected
+- **variables**: corrected map field
+- **flux**: adding correct api to kustomization
+- **immich/psql**: added subpath
+- **photos**: inserted secret in right namespace
+- **nfs-provisioner**: added local ip
+- **nfs-provisioner**: correct nas folder
+
+### Refactor
+
+- made all reconcicliations 2m30s
+- **secrets**: resealed secrets with new cluster secret
+- resealed secrets
+- **dragonfly**: increased cpu request
+- **dragonfly**: changed resources
+- **dragonfly**: using default container image
+- **dragonfly**: adding other replica
+- **immich**: removed trailing app parts
+- **monitoring**: no cleanup on fail
+- **infisical**: won't clean up after failing
+- **infisical**: change to 5 install tries
+- **ingress-nginx**: no longer declaring webhooks
+- **longhorn**: moved helm files to flux-system
+- **removing-immich**: will delete immich's old pvc
+- **base-config**: moved variables to controllers
+- **overhaul**: moved to a modular approach
+- **flux**: changed folder structure
+- **bootstrap/kustomize**: spacing
+- adopt multicluster arch
+- **old-flux**: clean-up
+- **folder-structure**: changed
