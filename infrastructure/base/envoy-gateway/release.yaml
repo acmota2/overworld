@@ -6,16 +6,12 @@ metadata:
   namespace: envoy-gateway-system
 spec:
   interval: 1h
-  targetNamespace: envoy-gateway-system
-  chart:
-    spec:
-      chart: gateway-helm
-      sourceRef:
-        kind: OCIRepository
-        name: envoy-gateway
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: envoy-gateway
+    namespace: flux-system
   install:
     createNamespace: true
+  targetNamespace: envoy-gateway-system
   values:
-    deployment:
-      replicas: 1
+    replicaCount: 1
