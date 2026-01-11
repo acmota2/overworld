@@ -7,4 +7,5 @@ resources:
   - 02-storage.yaml
   - 03-backends.yaml
   - 04-services.yaml
+  - 10-applications.yaml
   - flux-system/
