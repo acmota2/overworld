@@ -13,5 +13,5 @@ spec:
     - grafana.home.voldemota.xyz
   rules:
     - backendRefs:
-        - name: kube-prometheus-stack-grafana
+        - name: monitoring-kube-prometheus-stack-grafana
           port: 80
