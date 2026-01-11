@@ -5,7 +5,7 @@ kind: Kustomization
 resources:
   - ../../../base/cert-manager/
   - ../../../base/external-secrets/
-  - ../../../base/ingress-nginx/
+  - ../../../base/envoy-gateway/
   - ../../../base/metallb/
   - ../../../base/sealed-secrets/
   - config-maps.yaml

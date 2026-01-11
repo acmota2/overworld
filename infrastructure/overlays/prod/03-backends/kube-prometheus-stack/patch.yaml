@@ -5,6 +5,7 @@ metadata:
   name: kube-prometheus-stack
   namespace: flux-system
 spec:
+  interval: 1h
   values:
     grafana:
       persistence:
@@ -14,15 +15,7 @@ spec:
           - "ReadWriteOnce"
         size: 10Gi
       ingress:
-        enabled: true
-        annotations:
-          kubernetes.io/ingress.class: nginx
-        hosts:
-          - grafana.home.voldemota.xyz
-        tls:
-          - secretName: home-tls
-            hosts:
-              - grafana.home.voldemota.xyz
+        enabled: false
     resources:
       requests:
         memory: "1.5Gi"
