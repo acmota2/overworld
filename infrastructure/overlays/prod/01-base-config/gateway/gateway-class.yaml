@@ -5,3 +5,8 @@ metadata:
   name: envoy
 spec:
   controllerName: gateway.envoyproxy.io/controller
+  parametersRef:
+    group: gateway.envoyproxy.io
+    kind: EnvoyProxy
+    name: internal-ptoxy
+    namespace: networking
