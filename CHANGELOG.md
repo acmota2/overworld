@@ -1,3 +1,26 @@
+## v0.1.1 (2026-01-13)
+
+### Feat
+
+- **immich**: ended adding chart
+- **immich**: started adding immich
+- **clusters/prod**: started adding applications to prod cluster
+
+### Fix
+
+- **minio**: corrected backend url typo
+- **immich**: made readwriteonce the access mode
+- **minio**: corrected minio deployment
+- **immich**: explicitly creating namespace
+- **immich**: corrected appliation path
+- **minio**: added creds to kustomization
+- **apps**: added applications kustomization
+- **minio**: adding user credentials
+
+### Refactor
+
+- use more templates
+
 ## v0.1.0 (2026-01-11)
 
 ### BREAKING CHANGE
