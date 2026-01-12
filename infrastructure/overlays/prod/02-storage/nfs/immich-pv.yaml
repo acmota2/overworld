@@ -7,7 +7,7 @@ spec:
   capacity:
     storage: 1Ti
   accessModes:
-    - ReadOnlyMany
+    - ReadWriteOnce
   mountOptions:
     - hard
     - nfsvers=4.2
