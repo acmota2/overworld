@@ -12,7 +12,7 @@ spec:
         containers:
           main:
             env:
-              MINIO_SERVER_URL: http://http://platform-minio.platform.svc.cluster.local:9000
+              MINIO_SERVER_URL: http://platform-minio.platform.svc.cluster.local:9000
               MINIO_BROWSER_REDIRECT_URL: https://minio-ui.${INTERNAL_ADDRESS}
               MINIO_ROOT_USER:
                 valueFrom:
