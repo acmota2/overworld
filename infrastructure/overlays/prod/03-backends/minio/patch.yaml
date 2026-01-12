@@ -12,8 +12,7 @@ spec:
         containers:
           main:
             env:
-              MINIO_SERVER_URL: >-
-                http://{{ .Values.service.main.name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.api.port }}
+              MINIO_SERVER_URL: http://http://platform-minio.platform.svc.cluster.local:9000
               MINIO_BROWSER_REDIRECT_URL: https://minio-ui.${INTERNAL_ADDRESS}
               MINIO_ROOT_USER:
                 valueFrom:
