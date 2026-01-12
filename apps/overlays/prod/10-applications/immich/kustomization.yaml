@@ -10,3 +10,4 @@ patchesStrategicMerge:
 
 resources:
   - immich-pvc.yaml
+  - ns.yaml
