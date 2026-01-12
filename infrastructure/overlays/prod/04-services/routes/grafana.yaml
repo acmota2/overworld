@@ -10,7 +10,7 @@ spec:
     - name: internal-gateway
       namespace: networking
   hostnames:
-    - grafana.home.voldemota.xyz
+    - grafana.${INTERNAL_ADDRESS}
   rules:
     - backendRefs:
         - name: monitoring-kube-prometheus-stack-grafana

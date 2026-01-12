@@ -10,7 +10,7 @@ spec:
     - name: internal-gateway
       namespace: networking
   hostnames:
-    - longhorn.home.voldemota.xyz
+    - longhorn.${INTERNAL_ADDRESS}
   rules:
     - backendRefs:
         - name: longhorn-frontend

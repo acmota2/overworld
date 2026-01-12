@@ -10,7 +10,7 @@ spec:
     - name: internal-gateway
       namespace: networking
   hostnames:
-    - infisical.home.voldemota.xyz
+    - infisical.${INTERNAL_ADDRESS}
   rules:
     - backendRefs:
         - name: secrets-infisical-infisical-standalone-infisical

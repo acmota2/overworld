@@ -10,7 +10,7 @@ spec:
     - name: internal-gateway
       namespace: networking
   hostnames:
-    - minio-ui.home.voldemota.xyz
+    - minio-ui.${INTERNAL_ADDRESS}
   rules:
     - backendRefs:
         - name: platform-minio

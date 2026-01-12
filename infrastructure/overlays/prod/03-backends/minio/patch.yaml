@@ -12,8 +12,9 @@ spec:
         containers:
           main:
             env:
-              MINIO_SERVER_URL: https://minio.home.voldemota.xyz
-              MINIO_BROWSER_REDIRECT_URL: https://minio-ui.home.voldemota.xyz
+              MINIO_SERVER_URL: >-
+                http://{{ .Values.service.main.name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.api.port }}
+              MINIO_BROWSER_REDIRECT_URL: https://minio-ui.${INTERNAL_ADDRESS}
               MINIO_ROOT_USER:
                 valueFrom:
                   secretKeyRef:
