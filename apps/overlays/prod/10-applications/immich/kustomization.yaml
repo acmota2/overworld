@@ -9,5 +9,6 @@ patchesStrategicMerge:
   - patch.yaml
 
 resources:
+  - immich-db-creds.sealed.yaml
   - immich-pvc.yaml
   - ns.yaml

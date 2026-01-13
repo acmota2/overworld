@@ -1,0 +1,14 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: immich-db-creds
+  namespace: immich-db-creds
+spec:
+  encryptedData:
+    password: AgBPhxKSGC/k/GVP+kGuCsVLsivmvwhWSt9ITpIYF3YQ9IBajXuBuP1hPfcu5SlTAW9MjGgjrQdyBo5e+YAlgdjg4vrM8e1QMk5drl81VvKonwyr2vCdKgmrMAIYD3OLP+54w6+97lPRmwWXjTwrCgiAVklS3wfMaje4Y486bLd4puh4yvHLn/BfkhDTILqXmZEnhF6tHDGRF+aAvIUM9RDiR3Wzypa31dWju4nkqgGY+JbdQI5wbp9yDKurhp3+fwszz6ZF+F0jBWKydXm5GNZf3nqjm/yiJYXXyAMIt1j2mQ1hjl0k2AsvEpV9vXTwGZJ8oasXJqUYqgZUsxnrm8D3h3ehcSzTDDpnXmQ24zdFM0F3NSiVlejFSwq6zeDzBBCb101NnD2NVLSrS1cbNAyFvQUpLrL208ID05qQ2KFbDv99DAd2w+fz0nchwgwj16ABX3bhxyc47bkWgtp2DEjrH/SY2O9zMj+dtpOdNdrFyUr4bJ8Z1dpRF0Ym16uy0880M+JlO4XZN3pEBK2K/3xcGzkzMRwVF43Ghc5zvqa4u+UbV0KOo7Wf30+cEmHKyt/LMiLybESKJxhBa/roopNS7dhTYOwXHSiWTpSJL8hPX43gXle8ZGWw2+SC4VsDXEw4pMps2+7CUqHPiB/s8SNpxREVKQdzDEvebMIey+kbjgbc6wsknLrX9bNqK81B9I7KArtzf01z1Q==
+  template:
+    metadata:
+      name: immich-db-creds
+      namespace: immich-db-creds
+    type: Opaque

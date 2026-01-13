@@ -7,6 +7,22 @@ metadata:
 spec:
   interval: 5m0s
   values:
+    controllers:
+      main:
+        containers:
+          main:
+            env:
+              REDIS_HOSTNAME: dragonfly.db.svc.cluster.local
+              REDIS_PORT: "6379"
+              DB_HOSTNAME: psql-cluster-rw.db.svc.cluster.local
+              DB_PORT: "5432"
+              DB_USERNAME: immich
+              DB_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: immich-db-creds
+                    key: password
+              IMMICH_MACHINE_LEARNING_URL: http://immich-machine-learning:3003
     immich:
       persistence:
         library:
