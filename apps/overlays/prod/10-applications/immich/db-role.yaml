@@ -1,0 +1,16 @@
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: ManagedRole
+metadata:
+  name: immich
+  namespace: db
+spec:
+  cluster:
+    name: psql-cluster
+  role:
+    name: immich
+    login: true
+    passwordSecret:
+      name: immich-db-creds
+    privileges:
+      - CREATEDB
