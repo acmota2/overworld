@@ -14,6 +14,13 @@ spec:
       database: appdb
       owner: appuser
       encoding: UTF8
+  managed:
+    roles:
+      - name: immich
+        ensure: present
+        login: true
+        passwordSecret:
+          name: immich-db-creds
   monitoring:
     enablePodMonitor: true
   resources:
