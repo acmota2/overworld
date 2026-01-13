@@ -11,6 +11,6 @@ patchesStrategicMerge:
 resources:
   - db-role.yaml
   - db.yaml
-  - immich-db-creds.sealed.yaml
+  - external-creds.yaml
   - immich-pvc.yaml
   - ns.yaml
