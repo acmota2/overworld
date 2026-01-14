@@ -9,3 +9,6 @@ spec:
     name: psql-cluster
   name: immich
   owner: immich
+  extensions:
+    - ensure: present
+      name: vector
