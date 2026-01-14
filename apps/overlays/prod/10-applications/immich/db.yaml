@@ -11,4 +11,8 @@ spec:
   owner: immich
   extensions:
     - ensure: present
+      name: cube
+    - ensure: present
+      name: earthdistance
+    - ensure: present
       name: vector
