@@ -25,3 +25,7 @@ spec:
     - apiVersion: external-secrets.io/v1
       kind: ClusterSecretStore
       name: databases-secret-store
+    - apiVersion: v1
+      kind: Secret
+      name: immich-db-creds
+      namespace: db
