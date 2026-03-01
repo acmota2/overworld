@@ -26,10 +26,12 @@ spec:
                     key: password
     persistence:
       data:
-        storageClassName: local-path
-        accessModes:
-          - "ReadWriteOnce"
+        type: persistentVolumeClaim
+        storageClass: local-path
+        accessMode: ReadWriteOnce
         size: 1Gi
+        globalMounts:
+          - path: /data
     ingress:
       main:
         enabled: false
