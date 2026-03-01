@@ -1,0 +1,111 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cloudnative-pg
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  chart:
+    spec:
+      chart: app-template
+      version: "4.4.0"
+      sourceRef:
+        kind: HelmRepository
+        name: app-template
+        namespace: flux-system
+  targetNamespace: musmgr
+  install:
+    createNamespace: true
+  upgrade:
+    cleanupOnFail: false
+    remediation:
+      retries: 5
+  values:
+    controllers:
+      backend:
+        containers:
+          backend:
+            image:
+              repository: ghcr.io/musmgr/musmgr-backend
+              tag: "5511672"
+            args:
+              - server
+            probes:
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 5
+              liveness:
+                enabled: true
+              readiness:
+                enabled: true
+      frontend-admin:
+        containers:
+          frontend-admin:
+            image:
+              repository: ghcr.io/musmgr/musmgr-frontend-admin
+              tag: "5511672"
+            probes:
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 5
+              liveness:
+                enabled: true
+              readiness:
+                enabled: true
+      frontend-public:
+        containers:
+          frontend-public:
+            image:
+              repository: ghcr.io/musmgr/musmgr-frontend-public
+              tag: "5511672"
+            probes:
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 5
+              liveness:
+                enabled: true
+              readiness:
+                enabled: true
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534
+        runAsGroup: 100
+        fsGroup: 100
+        fsGroupChangePolicy: OnRootMismatch
+    service:
+      backend:
+        controller: backend
+        ports:
+          backend-admin:
+            port: 4700
+          backend-public:
+            port: 4701
+      admin:
+        controller: frontend-admin
+        ports:
+          frontend-admin:
+            port: 3000
+      public:
+        controller: frontend-public
+        ports:
+          frontend-public:
+            port: 3000
+    route:
+      main:
+        enabled: false
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "300m"
+      limits:
+        memory: "1024Mi"
+        cpu: "500m"
