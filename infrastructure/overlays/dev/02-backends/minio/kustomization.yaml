@@ -10,4 +10,3 @@ patchesStrategicMerge:
 
 resources:
   - minio-creds.sealed.yaml
-  - pvc.yaml
