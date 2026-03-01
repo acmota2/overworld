@@ -1,12 +1,11 @@
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
-interval: 10m0s
 metadata:
   name: local-path-provisioner
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 10m
   chartRef:
     kind: OCIRepository
     name: local-path-provisioner

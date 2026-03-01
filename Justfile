@@ -31,7 +31,7 @@ create-dev:
     --k3s-arg "--disable=local-storage@server:*" \
     -p "80:80@loadbalancer" \
     -p "443:443@loadbalancer" \
-    --volume "$(pwd)/k3d-storage:/var/mnt/local-path-provisioner@all"
+    --volume "$(pwd)/k3d-storage:/var/local-path-provisioner@all"
 
 delete-dev:
   @echo "Deleting 'dev' cluster - Ctrl+C to abort"
