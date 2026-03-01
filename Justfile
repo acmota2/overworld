@@ -25,6 +25,7 @@ flux-dev:
 create-dev:
   @echo "Creating k3d cluster named 'dev'"
   k3d cluster create dev \
+    --image rancher/k3s:v1.35.2-rc1-k3s1 \
     --agents 1 \
     --k3s-arg "--disable=traefik@server:*" \
     --k3s-arg "--disable=local-storage@server:*" \
