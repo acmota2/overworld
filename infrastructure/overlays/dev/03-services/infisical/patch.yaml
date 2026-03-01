@@ -1,0 +1,32 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: infisical
+  namespace: flux-system
+spec:
+  interval: 5m
+  values:
+    infisical:
+      # -- Kubernetes Secret reference containing Infisical root credentials
+      kubeSecretRef: "infisical-secrets"
+    ingress:
+      enabled: false
+    postgresql:
+      enabled: false
+      useExistingSecret: true
+      existingConnectionStringSecret:
+        name: "infisical-secrets"
+        key: "DB_CONNECTION_URI"
+    redis:
+      enabled: false
+      name: "redis"
+      fullnameOverride: "redis"
+      usePassword: false # set to true when setting a password
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+      limits:
+        memory: "512Mi"
+        cpu: "500m"

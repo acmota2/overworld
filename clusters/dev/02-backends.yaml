@@ -1,0 +1,19 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: 02-backends
+  namespace: flux-system
+spec:
+  interval: 2m30s
+  path: ../../infrastructure/overlays/dev/01-base-config/
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  dependsOn:
+    - name: 01-base-config
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: base-map

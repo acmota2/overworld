@@ -3,43 +3,54 @@ SEALED_SECRETS_NAME := "sealed-secrets-controller"
 SEALED_SECRETS_NAMESPACE := "sealed-secrets"
 
 flux-prod:
-    @echo "Bootstrapping Overworld PROD cluster — Ctrl+C to abort"
-    sleep 5
-    flux bootstrap github \
-        --owner=acmota2 \
-        --repository=overworld \
-        --branch=main \
-        --path=clusters/prod \
-        --personal
+  @echo "Bootstrapping Overworld PROD cluster — Ctrl+C to abort"
+  sleep 5
+  flux bootstrap github \
+      --owner=acmota2 \
+      --repository=overworld \
+      --branch=main \
+      --path=clusters/prod \
+      --personal
 
 flux-dev:
-    @echo "Bootstrapping Overworld DEV cluster — Ctrl+C to abort"
-    sleep 5
-    flux bootstrap github \
-        --owner=acmota2 \
-        --repository=overworld \
-        --branch=main \
-        --path=clusters/dev \
-        --personal
+  @echo "Bootstrapping Overworld DEV cluster — Ctrl+C to abort"
+  sleep 5
+  flux bootstrap github \
+      --owner=acmota2 \
+      --repository=overworld \
+      --branch=main \
+      --path=clusters/dev \
+      --personal
 
-seal-all:
-    @echo "Fetching Sealed Secrets public certificate..."
+create-dev:
+  @echo "Creating k3d cluster named 'dev'"
+  k3d cluster create dev \
+    --agents 1 \
+    --k3s-arg "--disable=traefik@server:*" \
+    --k3s-arg "--disable=local-storage@server:*" \
+    -p "80:80@loadbalancer" \
+    -p "443:443@loadbalancer" \
+    --volume "$(pwd)/k3d-storage:/var/mnt/local-path-provisioner@all"
 
-    @echo "Sealing all *.secret.yaml files..."
-    find . -name '*.secret.yaml' -type f | while read -r secret; do \
-        sealed="${secret%.secret.yaml}.sealed.yaml"; \
-        echo "  $secret -> $sealed"; \
-        kubeseal \
-          --format=yaml \
-          --cert <(kubeseal \
-            --fetch-cert \
-            --controller-name={{SEALED_SECRETS_NAME}} \
-            --controller-namespace={{SEALED_SECRETS_NAMESPACE}}) \
-          < "$secret" \
-          > "$sealed"; \
-    done
+delete-dev:
+  @echo "Deleting 'dev' cluster - Ctrl+C to abort"
+  sleep 5
+  k3d cluster delete dev
 
-    @echo "Done."
+seal-all CONTEXT:
+  @echo "Sealing all *.secret.yaml files for {{ CONTEXT }}"
+  kubeseal --fetch-cert \
+    --controller-name={{ SEALED_SECRETS_NAME }} \
+    --controller-namespace={{ SEALED_SECRETS_NAMESPACE }} > cert.pem
+  
+  find . -path '*/{{ CONTEXT }}/*' -name '*.secret.yaml' -type f | while read -r secret; do \
+      sealed="${secret%.secret.yaml}.sealed.yaml"; \
+      echo "  $secret -> $sealed"; \
+      kubeseal --format=yaml --cert tmp.crt < "$secret" > "$sealed"; \
+  done
+  
+  rm cert.pem
+  @echo "Done."
 
 k-get-all:
     kubectl get all --all-namespaces

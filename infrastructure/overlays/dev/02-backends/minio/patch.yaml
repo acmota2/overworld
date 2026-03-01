@@ -1,0 +1,38 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: minio
+  namespace: flux-system
+spec:
+  interval: 1h
+  values:
+    controllers:
+      minio:
+        containers:
+          main:
+            env:
+              MINIO_SERVER_URL: http://platform-minio.platform.svc.cluster.local:9000
+              MINIO_BROWSER_REDIRECT_URL: https://minio-ui.${INTERNAL_ADDRESS}
+              MINIO_ROOT_USER:
+                valueFrom:
+                  secretKeyRef:
+                    name: minio-creds
+                    key: username
+              MINIO_ROOT_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: minio-creds
+                    key: password
+    persistence:
+      data:
+        storageClassName: local-path
+        accessModes:
+          - "ReadWriteOnce"
+        size: 1Gi
+    ingress:
+      main:
+        enabled: false
+    route:
+      main:
+        enabled: false

@@ -1,0 +1,10 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - 00-base.yaml
+  - 01-base-config.yaml
+  - 02-backends.yaml
+  - 03-services.yaml
+  - 10-applications.yaml
+  - flux-system/

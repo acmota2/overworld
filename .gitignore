@@ -3,3 +3,5 @@
 *.tok
 *.secret.*
 .direnv
+k3d-storage
+cert.pem
