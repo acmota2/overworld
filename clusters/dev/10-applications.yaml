@@ -12,7 +12,7 @@ spec:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: 04-services
+    - name: 03-services
   postBuild:
     substituteFrom:
       - kind: ConfigMap

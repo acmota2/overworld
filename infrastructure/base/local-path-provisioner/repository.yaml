@@ -1,11 +1,14 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.ok8.sh/source.toolkit.fluxcd.io/ocirepository_v1.json
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: OCIRepository
 metadata:
   name: local-path-provisioner
-  namespace: flux-system
 spec:
-  interval: 1h
-  url: oci://dp.apps.rancher.io/charts/local-path-provisioner
+  interval: 12h
+  url: oci://ghcr.io/rancher/local-path-provisioner/charts/local-path-provisioner
   ref:
-    tag: v0.0.32
+    tag: 0.0.34
+  layerSelector:
+    mediaType: application/vnd.cncf.helm.chart.content.v1.tar+gzip
+    operation: copy
