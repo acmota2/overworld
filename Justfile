@@ -41,15 +41,17 @@ delete-dev:
 seal-all CONTEXT:
   @echo "Sealing all *.secret.yaml files for {{ CONTEXT }}"
   kubeseal --fetch-cert \
-    --controller-name={{ SEALED_SECRETS_NAME }} \
-    --controller-namespace={{ SEALED_SECRETS_NAMESPACE }} > cert.pem
+      --controller-name={{ SEALED_SECRETS_NAME }} \
+      --controller-namespace={{ SEALED_SECRETS_NAMESPACE }} > cert.pem
   
-  find . -path '*/{{ CONTEXT }}/*' -name '*.secret.yaml' -type f | while read -r secret; do \
+  find . -path './k3d-storage' -prune -o \
+  \( -path "./infrastructure/*/{{ CONTEXT }}/*" -o -path "./apps/*/{{ CONTEXT }}/*" \) \
+  -name "*.secret.yaml" -type f -print | while read -r secret; do \
       sealed="${secret%.secret.yaml}.sealed.yaml"; \
       echo "  $secret -> $sealed"; \
-      kubeseal --format=yaml --cert tmp.crt < "$secret" > "$sealed"; \
+      kubeseal --format=yaml --cert cert.pem < "$secret" > "$sealed"; \
   done
-  
+
   rm cert.pem
   @echo "Done."
 
