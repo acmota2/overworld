@@ -29,8 +29,9 @@ create-dev:
     --agents 1 \
     --k3s-arg "--disable=traefik@server:*" \
     --k3s-arg "--disable=local-storage@server:*" \
-    -p "80:80@loadbalancer" \
-    -p "443:443@loadbalancer" \
+    --k3s-arg "--disable=servicelb@server:*" \
+    -p "8080:80@loadbalancer" \
+    -p "8443:443@loadbalancer" \
     --volume "$(pwd)/k3d-storage:/var/local-path-provisioner@all"
 
 delete-dev:

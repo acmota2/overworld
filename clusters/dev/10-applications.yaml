@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 2m30s
-  path: ../../apps/overlays/prod/10-applications
+  path: ../../apps/overlays/dev/10-applications
   prune: true
   sourceRef:
     kind: GitRepository

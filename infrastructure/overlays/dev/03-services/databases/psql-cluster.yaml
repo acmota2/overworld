@@ -8,19 +8,12 @@ spec:
   instances: 2
   storage:
     size: 2Gi
-    storageClass: longhorn
+    storageClass: local-path
   bootstrap:
     initdb:
       database: appdb
       owner: appuser
       encoding: UTF8
-  managed:
-    roles:
-      - name: immich
-        ensure: present
-        login: true
-        passwordSecret:
-          name: immich-db-creds
   monitoring:
     enablePodMonitor: true
   resources:
