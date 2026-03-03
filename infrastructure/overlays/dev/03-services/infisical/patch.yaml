@@ -5,7 +5,6 @@ metadata:
   name: infisical
   namespace: flux-system
 spec:
-  version: "^1.7.2"
   interval: 5m
   values:
     infisical:
