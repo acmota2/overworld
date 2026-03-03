@@ -5,13 +5,15 @@ metadata:
   name: infisical
   namespace: flux-system
 spec:
+  version: "^1.7.2"
   interval: 5m
   values:
     infisical:
-      # -- Kubernetes Secret reference containing Infisical root credentials
       kubeSecretRef: "infisical-secrets"
     ingress:
       enabled: false
+      nginx:
+        enabled: false
     postgresql:
       enabled: false
       useExistingSecret: true
