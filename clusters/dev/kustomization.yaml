@@ -6,5 +6,5 @@ resources:
   - 01-base-config.yaml
   - 02-backends.yaml
   - 03-services.yaml
-  # - 10-applications.yaml
+  - 10-applications.yaml
   - flux-system/
