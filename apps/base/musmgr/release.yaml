@@ -29,7 +29,7 @@ spec:
           backend:
             image:
               repository: ghcr.io/musmgr/musmgr-backend
-              tag: "latest"
+              tag: "5511672"
             args:
               - server
             probes:
@@ -47,7 +47,7 @@ spec:
           frontend-admin:
             image:
               repository: ghcr.io/musmgr/musmgr-frontend-admin
-              tag: "latest"
+              tag: "5511672"
             probes:
               startup:
                 enabled: true
@@ -63,7 +63,7 @@ spec:
           frontend-public:
             image:
               repository: ghcr.io/musmgr/musmgr-frontend-public
-              tag: "latest"
+              tag: "5511672"
             probes:
               startup:
                 enabled: true
