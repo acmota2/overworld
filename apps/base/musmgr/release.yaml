@@ -28,7 +28,7 @@ spec:
         containers:
           backend:
             image:
-              repository: ghcr.io/musmgr/musmgr-backend
+              repository: ghcr.io/acmota2/musmgr/musmgr-backend
               tag: "5511672"
             args:
               - server
@@ -46,7 +46,7 @@ spec:
         containers:
           frontend-admin:
             image:
-              repository: ghcr.io/musmgr/musmgr-frontend-admin
+              repository: ghcr.io/acmota2/musmgr/musmgr-frontend-admin
               tag: "5511672"
             probes:
               startup:
@@ -62,7 +62,7 @@ spec:
         containers:
           frontend-public:
             image:
-              repository: ghcr.io/musmgr/musmgr-frontend-public
+              repository: ghcr.io/acmota2/musmgr/musmgr-frontend-public
               tag: "5511672"
             probes:
               startup:
