@@ -1,3 +1,58 @@
+## v0.2.0 (2026-03-17)
+
+### Feat
+
+- **secrets**: added musmgr secret
+- **clusters/dev**: reactivated apps flux kustomization
+- **apps**: adding musmgr for testing in dev
+- **clusters**: started adding dev cluster
+- **infrastructure/base**: added local-path-provisioner and bumped other chart versions
+- **immich**: make sure db exists
+
+### Fix
+
+- **dev/musmgr**: corrected patch to match correct helmrelease
+- **apps/musmgr**: corrected release name
+- **apps/musmgr**: fixed images url
+- **apps/musmgr**: corrected container tags
+- **apps/musmgr**: explicitly creating namespace
+- **apps/overlays/dev**: fixed musmgr overlay
+- **apps/musmgr**: removed ghcr secret mention from base
+- **clusters/dev**: fixed apps overlay folder structure
+- **dev/infisical**: corrected version
+- fixing ingress and load balancing
+- fixed db and deferred applications kustomization
+- **clusters/dev**: removed immich healthcheck
+- **dev/infrastructure**: corrected minio storage
+- **dev/infrastructure**: corrected kustomization folder structure
+- **clusters/dev**: fixed backends kustomization
+- **local-path-provisioner**: run as specific user
+- **local-path-provisioner**: added namespace to respository
+- corrected local-path config and flux kustomizations
+- **local-path-provisioner**: added repository
+- **dev/infrastructure**: corrected local path variables
+- **dev/infrastructure**: corrected gateway address
+- **infrastructure/dev**: corrected local-path kustomization
+- **immich**: added all database extensions
+- **00-base**: added authentication folder to kustomization
+- **immich**: install vector
+- **secrets**: immich login should be of type base-auth
+- **immich**: managed role is already declared in the db itself
+- typo
+- **immich**: added database credentials to kustomizations
+- **immich**: added database credentials
+- **immich**: db creds namespace
+- **immich**: added explicit databases
+
+### Refactor
+
+- **dev**: resealed all secrets
+- **secrets**: re-sealed dev secrets
+- resealed dev secrets
+- **db**: moved authentication to reconcile earlier
+- **secrets**: resealed secrets
+- **secrets**: resealed all secrets
+
 ## v0.1.1 (2026-01-13)
 
 ### Feat
