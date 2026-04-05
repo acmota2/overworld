@@ -31,7 +31,7 @@ spec:
               repository: ghcr.io/acmota2/musmgr/musmgr-backend
               tag: "5511672"
             args:
-              - server
+              - "--storage-type MINIO"
             probes:
               startup:
                 enabled: true

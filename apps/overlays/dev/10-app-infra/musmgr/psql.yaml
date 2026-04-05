@@ -1,0 +1,29 @@
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: psql-musmgr-cluster
+  namespace: musmgr
+spec:
+  instances: 1
+  storage:
+    size: 1Gi
+    storageClass: local-path
+  bootstrap:
+    initdb: {}
+  managed:
+    roles:
+      - name: musmgr
+        ensure: present
+        login: true
+        passwordSecret:
+          name: musmgr-db-creds
+  monitoring:
+    enablePodMonitor: true
+  resources:
+    requests:
+      cpu: 200m
+      memory: "512Gi"
+    limits:
+      cpu: 700m
+      memory: "1Gi"
