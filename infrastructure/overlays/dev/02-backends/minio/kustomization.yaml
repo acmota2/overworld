@@ -9,4 +9,4 @@ patchesStrategicMerge:
   - patch.yaml
 
 resources:
-  - minio-creds.sealed.yaml
+  - minio-creds-external.yaml
