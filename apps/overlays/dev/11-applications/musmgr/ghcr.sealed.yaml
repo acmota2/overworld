@@ -1,0 +1,14 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: ghcr-token
+  namespace: musmgr
+spec:
+  encryptedData:
+    token: AgA2QrR9YJqvCS2ZzsImF4MNZQVkV1vC43eSsHp0x14h951dwUUiusb+CPZRJvo2xmIHHuIoZVsHDSJSkwvNs3JRdJNxJMrlXMV1yNatPMa1ftlxEBsWASlqbIAaeEakM+AlDWwcpnag41eO2whJoW+LmQp4VWRbYIk50d1gbMFuzPpc6BVES3cyEW1JJy/aRcRTjWnreJgr+NbQzVgLWhNHi2mHcCMfnYzwHOwswW7unM164HQU70jH5nFxx6iSO95xzxDEQVxd9UkN0N9zrpz3T5h/FhBjqNL0nuJsHkT9fBKI1IQVuYytDf1Z+u/DrsUTBWSMsIi1aRPjgCVmYMF37gzqkwLOOE+20zZ0kuZJYEhMkelIWbpBPtipr6yWhqmeYsne7UKK+87hDu5Axy58cUGQUvosPVTwP7oQ+3qVtHiE2fr3gke26RKZtYRYFfZbwqm6m0tALe26QYvboliEdszUZaqBav0FUYmehM+svvm/ThiBGm2w2yxmgvASTIK8sIf3+VoTiT6eJ3qtWxpoMseH7Gvgp/Q/xB+jefzduMink4NPC4llpYm0UCVKrUfWZjq8jiyuIuddg6WLztitIaCw8pfQvKryqPxdbn5iIiMbNQs1tUJTgZiD4PU5bYy0/zCvP49QB1ovOzBV6PDdv2AJSC6kvqrK3lavVrFgmuwdfX1aqKtEqJHdfr4tFDlGo8j/mhrPyEESnxD7Yhm43LMBlv3PXAkc+Y5wsuq4piPUJsvcso8e
+  template:
+    metadata:
+      name: ghcr-token
+      namespace: musmgr
+    type: Opaque
