@@ -27,7 +27,6 @@ spec:
       - name: ghcr-secret
     controllers:
       backend:
-        strategy: recreate
         containers:
           image:
             env:
