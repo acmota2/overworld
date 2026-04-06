@@ -28,7 +28,7 @@ spec:
     controllers:
       backend:
         containers:
-          image:
+          backend:
             env:
               MINIO_ENDPOINT: platform-minio.platform.svc.cluster.local:9000
               MINIO_ACCESS_KEY_ID:
