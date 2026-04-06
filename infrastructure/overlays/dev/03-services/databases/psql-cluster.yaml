@@ -3,7 +3,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: psql-cluster
-  namespace: musmgr
+  namespace: platform
 spec:
   instances: 1
   storage:
@@ -11,13 +11,6 @@ spec:
     storageClass: local-path
   bootstrap:
     initdb: {}
-  managed:
-    roles:
-      - name: musmgr
-        ensure: present
-        login: true
-        passwordSecret:
-          name: musmgr-db-creds
   monitoring:
     enablePodMonitor: true
   resources:
