@@ -29,7 +29,7 @@ spec:
           backend:
             image:
               repository: ghcr.io/acmota2/musmgr/musmgr-backend
-              tag: "5511672"
+              tag: "8fe485b"
             args:
               - "--storage-type MINIO"
             probes:
@@ -47,7 +47,7 @@ spec:
           frontend-admin:
             image:
               repository: ghcr.io/acmota2/musmgr/musmgr-frontend-admin
-              tag: "5511672"
+              tag: "8fe485b"
             probes:
               startup:
                 enabled: true
@@ -63,7 +63,7 @@ spec:
           frontend-public:
             image:
               repository: ghcr.io/acmota2/musmgr/musmgr-frontend-public
-              tag: "5511672"
+              tag: "8fe485b"
             probes:
               startup:
                 enabled: true
