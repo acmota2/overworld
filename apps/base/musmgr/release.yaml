@@ -76,7 +76,7 @@ spec:
                 enabled: true
     defaultPodOptions:
       imagePullSecrets:
-        - name: ghcr-token
+        - name: ghcr-creds
       securityContext:
         runAsNonRoot: true
         runAsUser: 65534
