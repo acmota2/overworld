@@ -35,6 +35,11 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     name: minio-creds
+                    key: username
+              MINIO_SECRET_ACCESS_KEY:
+                valueFrom:
+                  secretKeyRef:
+                    name: minio-creds
                     key: password
               MINIO_BUCKET_NAME: "musmgr-obj"
               MINIO_BUCKET_REGION: "us-east-1"
