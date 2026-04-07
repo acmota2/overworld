@@ -31,7 +31,8 @@ spec:
               repository: ghcr.io/acmota2/musmgr/musmgr-backend
               tag: "8fe485b"
             args:
-              - "--storage-type MINIO"
+              - "--storage-type"
+              - "MINIO"
             probes:
               startup:
                 enabled: true
