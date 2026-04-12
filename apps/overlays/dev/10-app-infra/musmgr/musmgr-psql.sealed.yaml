@@ -3,7 +3,7 @@ apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
   name: psql-musmgr-creds
-  namespace: musmgr
+  namespace: db
 spec:
   encryptedData:
     password: AgCOodeACxsusAQxC+bpIcCE09ejrK/nphi1/cAuAwKPTqauIH7Om98UW60v4SbhV+eRyTsnWNwsTy3o06q8VRH0UxjowH2fNQ6pC2+/Rfym7r1qqiyYZlhj0LJs7cr1XnXxMlwwbS3e0QxuELaR2X1cUCbHM+dsFajXgFfYBqbVNtIkSgl4AL5e+8jjmRDQncbA7/Pkc0Ys8UWTaQ0/Lk0DkT/Mr39HDHs/XwkV8256KhygHo+G+yen6oK3Vdg2Vv/Uszie5iVehLkfkpG6acScgc8Aq+4u94jlPREO3FhGWus6YcrStprwG86Atu6w5V5iccqESnT1uxBiU/K38uW1LpEjx5IUhHGhMSROufTt9e3M4zYqrnp2VaQcQUrbYR86ECvu/welqsINBTekDfE64uYt9lHRv/H7RJ5xbrheIFaeAujb1THcIvBbJsTWWiNbh/iAH2VKLzHBoCCI3Lw8r3CJj/TuoQkZq+j5FB4UNdiSIWecydo7YAqHNGTehPdX/nkUVb36Va35ttnDycdY7glwxeUri+y9A1uFycS9Mjfb+9kRl/V3y/vwU30xIHS0kQghBwR2S+s0lhUC2hNZXtpsR64OFE2eOVz2YnONoU8o92OKEgz0My6bc2r17MBMLwviZel06S7/la7s0R1OHEYwOfak6EaN6sSKTi25/3TS5lTsAg1LoMVIQJ7F4W0S/FaRjlM=

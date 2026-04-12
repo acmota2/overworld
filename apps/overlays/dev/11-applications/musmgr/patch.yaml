@@ -55,9 +55,9 @@ spec:
                   secretKeyRef:
                     name: psql-musmgr-creds
                     key: password
-              POSTGRES_HOST: psql-musmgr-cluster-rw.musmgr.svc.cluster.local
-              ALLOWED_ADMIN_DOMAINS: '["http://localhost"]'
-              ALLOWED_PUBLIC_DOMAINS: '["http://localhost"]'
+              POSTGRES_HOST: psql-musmgr-cluster-rw.db.svc.cluster.local
+              ALLOWED_ADMIN_DOMAINS: '["http://musmgr-admin.home.localhost"]'
+              ALLOWED_PUBLIC_DOMAINS: '["http://musmgr.home.localhost"]'
               GIN_MODE: release
     route:
       main:

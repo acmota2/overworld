@@ -28,8 +28,8 @@ spec:
         containers:
           backend:
             image:
-              repository: ghcr.io/acmota2/musmgr/musmgr-backend
-              tag: "0.3.0"
+              repository: ghcr.io/acmota2/musmgr/backend
+              tag: "0.4.0"
             args:
               - "--storage-type"
               - "MINIO"
@@ -47,8 +47,8 @@ spec:
         containers:
           frontend-admin:
             image:
-              repository: ghcr.io/acmota2/musmgr/musmgr-frontend-admin
-              tag: "0.3.0"
+              repository: ghcr.io/acmota2/musmgr/frontend-admin
+              tag: "0.4.0"
             probes:
               startup:
                 enabled: true
@@ -63,8 +63,8 @@ spec:
         containers:
           frontend-public:
             image:
-              repository: ghcr.io/acmota2/musmgr/musmgr-frontend-public
-              tag: "0.3.0"
+              repository: ghcr.io/acmota2/musmgr/frontend-public
+              tag: "0.4.0"
             probes:
               startup:
                 enabled: true
