@@ -17,7 +17,7 @@ spec:
         ensure: present
         login: true
         passwordSecret:
-          name: musmgr-db-creds
+          name: psql-musmgr-creds
   monitoring:
     enablePodMonitor: true
   resources:
