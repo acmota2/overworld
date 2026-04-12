@@ -7,6 +7,3 @@ bases:
 
 patchesStrategicMerge:
   - patch.yaml
-
-resources:
-  - ghcr.sealed.yaml

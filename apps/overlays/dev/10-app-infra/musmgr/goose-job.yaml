@@ -9,6 +9,8 @@ spec:
   template:
     spec:
       restartPolicy: Never
+      imagePullSecrets:
+        - name: ghcr-creds
       containers:
         - name: goose
           image: "ghcr.io/acmota2/musmgr/goose-job:0.4.0"
