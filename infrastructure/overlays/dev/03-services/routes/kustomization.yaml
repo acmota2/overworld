@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - grafana.yaml
   - minio-ui.yaml
-  - infisical.yaml
+  - musmgr.yaml
