@@ -13,7 +13,7 @@ spec:
     - musmgr-api-admin.${INTERNAL_ADDRESS}
   rules:
     - backendRefs:
-        - name: musmgr-backend
+        - name: musmgr-musmgr-backend
           port: 4700
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/main/config/crd/standard/gateway.networking.k8s.io_httproutes.yaml
@@ -30,7 +30,7 @@ spec:
     - musmgr-api.${INTERNAL_ADDRESS}
   rules:
     - backendRefs:
-        - name: musmgr-backend
+        - name: musmgr-musmgr-backend
           port: 4700
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/main/config/crd/standard/gateway.networking.k8s.io_httproutes.yaml
@@ -47,7 +47,7 @@ spec:
     - musmgr.${INTERNAL_ADDRESS}
   rules:
     - backendRefs:
-        - name: musmgr-frontend-public
+        - name: musmgr-musmgr-frontend-public
           port: 3000
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/main/config/crd/standard/gateway.networking.k8s.io_httproutes.yaml
@@ -64,5 +64,5 @@ spec:
     - musmgr-admin.${INTERNAL_ADDRESS}
   rules:
     - backendRefs:
-        - name: musmgr-frontend-admin
+        - name: musmgr-musmgr-frontend-admin
           port: 3000
