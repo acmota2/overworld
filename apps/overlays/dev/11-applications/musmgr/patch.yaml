@@ -56,10 +56,16 @@ spec:
                     name: musmgr-db
                     key: password
               POSTGRES_HOST: psql-musmgr-cluster-rw.db.svc.cluster.local
-              TRUSTED_PROXIES: "http://musmgr.home.localhost"
+              TRUSTED_PROXIES: "home.localhost:8080"
               ALLOWED_ADMIN_DOMAINS: '["http://musmgr-admin.home.localhost"]'
               ALLOWED_PUBLIC_DOMAINS: '["http://musmgr.home.localhost"]'
               GIN_MODE: release
+          frontend-public:
+            env:
+              API_URL: http://musmgr-api.home.localhost:8080
+          frontend-admin:
+            env:
+              API_URL: http://musmgr-api-admin.home.localhost:8080
     route:
       main:
         enabled: false
