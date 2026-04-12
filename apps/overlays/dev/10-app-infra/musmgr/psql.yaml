@@ -10,7 +10,9 @@ spec:
     size: 1Gi
     storageClass: local-path
   bootstrap:
-    initdb: {}
+    initdb:
+      database: musmgr
+      owner: musmgr
   managed:
     roles:
       - name: musmgr
