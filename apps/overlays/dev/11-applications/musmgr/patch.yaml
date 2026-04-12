@@ -56,9 +56,9 @@ spec:
                     name: musmgr-db
                     key: password
               POSTGRES_HOST: psql-musmgr-cluster-rw.db.svc.cluster.local
-              TRUSTED_PROXIES: "home.localhost:8080"
-              ALLOWED_ADMIN_DOMAINS: '["http://musmgr-admin.home.localhost"]'
-              ALLOWED_PUBLIC_DOMAINS: '["http://musmgr.home.localhost"]'
+              TRUSTED_PROXIES: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+              ALLOWED_ADMIN_DOMAINS: '["http://musmgr-admin.home.localhost:8080"]'
+              ALLOWED_PUBLIC_DOMAINS: '["http://musmgr.home.localhost:8080"]'
               GIN_MODE: release
       frontend-public:
         containers:
