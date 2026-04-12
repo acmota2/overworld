@@ -48,14 +48,15 @@ spec:
               POSTGRES_USER:
                 valueFrom:
                   secretKeyRef:
-                    name: psql-musmgr-creds
+                    name: musmgr-db
                     key: username
               POSTGRES_PASSWORD:
                 valueFrom:
                   secretKeyRef:
-                    name: psql-musmgr-creds
+                    name: musmgr-db
                     key: password
               POSTGRES_HOST: psql-musmgr-cluster-rw.db.svc.cluster.local
+              TRUSTED_PROXIES: "http://musmgr-api.home.localhost"
               ALLOWED_ADMIN_DOMAINS: '["http://musmgr-admin.home.localhost"]'
               ALLOWED_PUBLIC_DOMAINS: '["http://musmgr.home.localhost"]'
               GIN_MODE: release
