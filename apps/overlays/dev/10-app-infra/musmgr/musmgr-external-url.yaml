@@ -16,6 +16,8 @@ spec:
       type: Opaque
       data:
         POSTGRES_URL: "postgres://{{ .username }}:{{ .password | urlquery }}@psql-musmgr-cluster-rw.db.svc.cluster.local:5432/musmgr?sslmode=require"
+        password: "{{ .password }}"
+        username: "{{ .username }}"
   data:
     - secretKey: username
       remoteRef:
