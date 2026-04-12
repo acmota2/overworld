@@ -60,9 +60,13 @@ spec:
               ALLOWED_ADMIN_DOMAINS: '["http://musmgr-admin.home.localhost"]'
               ALLOWED_PUBLIC_DOMAINS: '["http://musmgr.home.localhost"]'
               GIN_MODE: release
+      frontend-public:
+        containers:
           frontend-public:
             env:
               API_URL: http://musmgr-api.home.localhost:8080
+      frontend-admin:
+        containers:
           frontend-admin:
             env:
               API_URL: http://musmgr-api-admin.home.localhost:8080
