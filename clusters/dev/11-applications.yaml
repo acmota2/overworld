@@ -21,4 +21,4 @@ spec:
     - apiVersion: postgresql.cnpg.io/v1
       kind: Cluster
       name: psql-musmgr-cluster
-      namespace: musmgr
+      namespace: db
