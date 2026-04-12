@@ -22,5 +22,3 @@ spec:
                 secretKeyRef:
                   name: musmgr-db
                   key: POSTGRES_URL
-          args:
-            - up
