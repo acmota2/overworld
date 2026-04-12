@@ -10,4 +10,3 @@ patchesStrategicMerge:
 
 resources:
   - ghcr.sealed.yaml
-  - minio-creds-external.yaml
