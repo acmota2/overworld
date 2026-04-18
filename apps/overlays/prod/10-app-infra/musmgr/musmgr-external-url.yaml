@@ -1,0 +1,30 @@
+---
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: musmgr-db
+  namespace: musmgr
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: databases-secret-store
+    kind: ClusterSecretStore
+  target:
+    name: musmgr-db
+    creationPolicy: Owner
+    template:
+      engineVersion: v2
+      type: Opaque
+      data:
+        POSTGRES_URL: "postgres://{{ .username }}:{{ .password | urlquery }}@psql-musmgr-cluster-rw.db.svc.cluster.local:5432/musmgr?sslmode=require"
+        password: "{{ .password }}"
+        username: "{{ .username }}"
+  data:
+    - secretKey: username
+      remoteRef:
+        key: psql-musmgr-creds
+        property: username
+    - secretKey: password
+      remoteRef:
+        key: psql-musmgr-creds
+        property: password

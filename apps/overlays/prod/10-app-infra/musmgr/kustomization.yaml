@@ -1,0 +1,11 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ghcr.sealed.yaml
+  - goose-job.yaml
+  - minio-external-secret.yaml
+  - musmgr-external-url.yaml
+  - musmgr-psql.sealed.yaml
+  - namespace.yaml
+  - psql.yaml
