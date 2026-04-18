@@ -64,12 +64,12 @@ spec:
         containers:
           frontend-public:
             env:
-              API_URL: http://musmgr-api.home.localhost:8080
+              API_URL: http://musmgr-musmgr-backend.musmgr.svc.cluster.local:4701
       frontend-admin:
         containers:
           frontend-admin:
             env:
-              API_URL: http://musmgr-api-admin.home.localhost:8080
+              API_URL: http://musmgr-musmgr-backend.musmgr.svc.cluster.local:4700
     route:
       main:
         enabled: false
