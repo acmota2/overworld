@@ -29,7 +29,7 @@ spec:
           backend:
             image:
               repository: ghcr.io/acmota2/musmgr/backend
-              tag: "0.4.0"
+              tag: "0.4.1"
             args:
               - "--storage-type"
               - "MINIO"
@@ -48,7 +48,7 @@ spec:
           frontend-admin:
             image:
               repository: ghcr.io/acmota2/musmgr/frontend-admin
-              tag: "0.4.0"
+              tag: "0.4.1"
             probes:
               startup:
                 enabled: true
@@ -64,7 +64,7 @@ spec:
           frontend-public:
             image:
               repository: ghcr.io/acmota2/musmgr/frontend-public
-              tag: "0.4.0"
+              tag: "0.4.1"
             probes:
               startup:
                 enabled: true
