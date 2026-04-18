@@ -70,8 +70,9 @@ spec:
         containers:
           frontend-admin:
             env:
-              ORIGIN: http://musmgr-admin.home.localhost:8080
+              BODY_SIZE_LIMIT: 67108864 # 64MiB
               API_URL: http://musmgr-musmgr-backend.musmgr.svc.cluster.local:4700
+              ORIGIN: http://musmgr-admin.home.localhost:8080
     route:
       main:
         enabled: false
