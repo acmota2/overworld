@@ -1,0 +1,27 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: ghcr-secret
+  namespace: musmgr
+spec:
+  refreshInterval: 1m
+  secretStoreRef:
+    name: infisical-cluster-secretstore
+    kind: ClusterSecretStore
+  target:
+    name: ghcr-secret
+    template:
+      type: kubernetes.io/dockerconfigjson
+      data:
+        .dockerconfigjson: |
+          {
+            "auths": {
+              "ghcr.io": {
+                "auth": "{{ printf "acmota2:%s" .token | b64enc }}"
+              }
+            }
+          }
+  data:
+    - secretKey: token
+      remoteRef:
+        key: GHCR_TOKEN
