@@ -28,7 +28,7 @@ spec:
       - name: EXTERNAL_DNS_PIHOLE_API_VERSION
         value: "6"
       - name: EXTERNAL_DNS_PIHOLE_SERVER
-        value: "http://192.168.1.4"
+        value: https://pi-hole.${INTERNAL_ADDRESS}
       - name: EXTERNAL_DNS_PIHOLE_PASSWORD
         valueFrom:
           secretKeyRef:
