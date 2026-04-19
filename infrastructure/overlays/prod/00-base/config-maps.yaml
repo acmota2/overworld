@@ -7,7 +7,7 @@ metadata:
 data:
   EXTERNAL_ADDRESS: "voldemota.xyz"
   INTERNAL_ADDRESS: "home.voldemota.xyz"
-  NFS_SERVER_ADDRESS: "nfs.svc.voldemota.xyz"
+  NFS_SERVER_ADDRESS: "192.168.1.2"
   SERVICES_ADDRESS: "svc.voldemota.xyz"
 ---
 apiVersion: v1
