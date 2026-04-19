@@ -16,8 +16,13 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  svc-voldemota.server: |
+  internal.server: |
     svc.voldemota.xyz:53 {
+        errors
+        cache 30
+        forward . 192.168.1.4
+    }
+    home.voldemota.xyz:53 {
         errors
         cache 30
         forward . 192.168.1.4
