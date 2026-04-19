@@ -6,3 +6,4 @@ resources:
   - gateway/
   - metallb/
   - secret-stores/
+  - secrets/
