@@ -8,7 +8,6 @@ resources:
   - ../../../base/envoy-gateway/
   - ../../../base/metallb/
   - ../../../base/sealed-secrets/
-  - authentication/
   - config-maps.yaml
   - namespaces.yaml
   - rbac/
