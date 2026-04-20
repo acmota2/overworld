@@ -7,4 +7,5 @@ resources:
   - minio-external-secret.yaml
   - musmgr-external-url.yaml
   - namespace.yaml
+  - psql-creds-external.yaml
   - psql.yaml

@@ -1,0 +1,22 @@
+---
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: psql-musmgr-creds
+  namespace: db
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: infisical-cluster-secretstore
+    kind: ClusterSecretStore
+  target:
+    name: psql-musmgr-creds
+    template:
+      type: kubernetes.io/basic-auth
+  data:
+    - secretKey: username
+      remoteRef:
+        key: "/databases/musmgr/USERNAME"
+    - secretKey: password
+      remoteRef:
+        key: "/databases/musmgr/PASSWORD"
