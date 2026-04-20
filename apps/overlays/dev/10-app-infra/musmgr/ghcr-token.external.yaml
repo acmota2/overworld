@@ -18,7 +18,7 @@ spec:
           {
             "auths": {
               "ghcr.io": {
-                "auth": "{{ printf "acmota2:%s" .token | b64enc }}"
+                "auth": "{{ printf "acmota2:%s" .token }}"
               }
             }
           }
