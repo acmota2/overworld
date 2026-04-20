@@ -6,7 +6,7 @@ metadata:
 spec:
   refreshInterval: 1h
   secretStoreRef:
-    name: databases-secret-store
+    name: infisical-cluster-secretstore
     kind: ClusterSecretStore
   target:
     name: musmgr-db
@@ -21,9 +21,7 @@ spec:
   data:
     - secretKey: username
       remoteRef:
-        key: psql-musmgr-creds
-        property: username
+        key: databases/musmgr/USERNAME
     - secretKey: password
       remoteRef:
-        key: psql-musmgr-creds
-        property: password
+        key: databases/musmgr/PASSWORD
