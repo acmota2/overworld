@@ -16,7 +16,7 @@ spec:
   data:
     - secretKey: username
       remoteRef:
-        key: obj-storage/USERNAME
+        key: "/obj-storage/USERNAME"
     - secretKey: password
       remoteRef:
-        key: obj-storage/PASSWORD
+        key: "/obj-storage/PASSWORD"

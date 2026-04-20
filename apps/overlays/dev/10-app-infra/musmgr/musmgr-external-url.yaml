@@ -21,7 +21,7 @@ spec:
   data:
     - secretKey: username
       remoteRef:
-        key: databases/musmgr/USERNAME
+        key: "/databases/musmgr/USERNAME"
     - secretKey: password
       remoteRef:
-        key: databases/musmgr/PASSWORD
+        key: "/databases/musmgr/PASSWORD"
