@@ -10,7 +10,7 @@ spec:
     name: infisical-cluster-secretstore
     kind: ClusterSecretStore
   target:
-    name: ghcr-secret
+    name: ghcr-creds
     template:
       type: kubernetes.io/dockerconfigjson
       data:
