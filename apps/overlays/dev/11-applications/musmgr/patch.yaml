@@ -29,6 +29,8 @@ spec:
       backend:
         containers:
           backend:
+            image:
+              tag: "latest"
             env:
               MINIO_ENDPOINT: platform-minio.platform.svc.cluster.local:9000
               MINIO_ACCESS_KEY_ID:
@@ -63,12 +65,16 @@ spec:
       frontend-public:
         containers:
           frontend-public:
+            image:
+              tag: "latest"
             env:
               ORIGIN: http://musmgr.home.localhost:8080
               API_URL: http://musmgr-musmgr-backend.musmgr.svc.cluster.local:4701
       frontend-admin:
         containers:
           frontend-admin:
+            image:
+              tag: "latest"
             env:
               BODY_SIZE_LIMIT: 67108864 # 64MiB
               API_URL: http://musmgr-musmgr-backend.musmgr.svc.cluster.local:4700
