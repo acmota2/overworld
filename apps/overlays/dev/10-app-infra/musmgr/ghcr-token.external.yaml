@@ -14,16 +14,7 @@ spec:
     template:
       type: kubernetes.io/dockerconfigjson
       data:
-        .dockerconfigjson: |-
-          {
-            "auths": {
-              "ghcr.io": {
-                "username": "acmota2",
-                "password": "{{ .token }}",
-                "auth": "{{ printf "acmota2:%s" .token | b64enc }}"
-              }
-            }
-          }
+        .dockerconfigjson: '{"auths":{"ghcr.io":{"username":"acmota2","password":"{{ .token }}","auth":"{{ printf "acmota2:%s" .token | b64enc }}"}}}'
   data:
     - secretKey: token
       remoteRef:
