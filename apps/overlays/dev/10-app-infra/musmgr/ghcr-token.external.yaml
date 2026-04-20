@@ -18,6 +18,8 @@ spec:
           {
             "auths": {
               "ghcr.io": {
+                "username": "acmota2",
+                "password": "{{ .token }}",
                 "auth": "{{ printf "acmota2:%s" .token | b64enc }}"
               }
             }
