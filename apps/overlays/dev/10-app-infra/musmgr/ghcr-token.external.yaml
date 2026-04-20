@@ -14,11 +14,11 @@ spec:
     template:
       type: kubernetes.io/dockerconfigjson
       data:
-        .dockerconfigjson: |
+        .dockerconfigjson: |-
           {
             "auths": {
               "ghcr.io": {
-                "auth": "{{ printf "acmota2:%s" .token }}"
+                "auth": "{{ printf "acmota2:%s" .token | b64enc }}"
               }
             }
           }
