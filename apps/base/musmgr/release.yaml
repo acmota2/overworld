@@ -80,9 +80,7 @@ spec:
         - name: ghcr-creds
       securityContext:
         runAsNonRoot: true
-        runAsUser: 65534
-        runAsGroup: 100
-        fsGroup: 100
+        runAsUser: 1001
         fsGroupChangePolicy: OnRootMismatch
     service:
       backend:
