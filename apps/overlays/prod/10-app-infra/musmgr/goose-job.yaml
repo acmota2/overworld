@@ -2,7 +2,8 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: musmgr-goose-migrate
+  # jobs are immutable
+  name: musmgr-goose-migrate-v0002
   namespace: musmgr
 spec:
   backoffLimit: 5
