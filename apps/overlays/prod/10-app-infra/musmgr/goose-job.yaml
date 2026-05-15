@@ -3,7 +3,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   # jobs are immutable
-  name: musmgr-goose-migrate-v0002
+  name: musmgr-goose-migrate-v0003
   namespace: musmgr
 spec:
   backoffLimit: 5
@@ -15,7 +15,7 @@ spec:
         - name: ghcr-creds
       containers:
         - name: goose
-          image: "ghcr.io/acmota2/musmgr/goose-job:0.6.1"
+          image: "ghcr.io/acmota2/musmgr/goose-job:0.6.2"
           env:
             - name: GOOSE_DRIVER
               value: postgres
