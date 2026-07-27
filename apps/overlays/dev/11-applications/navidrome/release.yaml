@@ -1,0 +1,96 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: navidrome
+spec:
+  interval: 1h
+  timeout: 10m
+  chart:
+    spec:
+      chart: app-template
+      version: "4.4.0"
+      sourceRef:
+        kind: HelmRepository
+        name: app-template
+        namespace: flux-system
+  values:
+    controllers:
+      navidrome:
+        type: statefulset
+        containers:
+          app:
+            image:
+              repository: ghcr.io/navidrome/navidrome
+              tag: 0.62.0@sha256:c4b5cb36a790b3eb63ca6a68bbe2fe149c2d7fa2e586f7a480e61db630e6664b
+            env:
+              ND_BASEURL: "https://{{ .Release.Name }}.${INTERNAL_ADDRESS}"
+              ND_CACHEFOLDER: /config/cache
+              ND_DATAFOLDER: /config
+              ND_ENABLEINSIGHTSCOLLECTOR: false
+              ND_IMAGECACHESIZE: 500MB
+              ND_MUSICFOLDER: /music
+              ND_PORT: &port 80
+              ND_SCANNER_SCHEDULE: "@every 1h"
+              ND_TRANSCODINGCACHESIZE: 1GB
+              ND_TRANSCODING_MAXCONCURRENT: 2
+              ND_TRANSCODING_MAXCONCURRENTPERUSER: 1
+              ND_ENFORCENONROOTUSER: true
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 10m
+                memory: 128Mi
+              limits:
+                memory: 512Mi
+        statefulset:
+          volumeClaimTemplates:
+            - name: cache
+              storageClass: longhorn
+              accessMode: ReadWriteOnce
+              size: 5Gi
+              advancedMounts:
+                app:
+                  - path: /config/cache
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 568
+        runAsGroup: 568
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+    persistence:
+      config:
+        existingClaim: "{{ .Release.Name }}"
+      media:
+        existingClaim: navidrome-pvc
+        globalMounts:
+          - path: /music
+            subPath: media/music # Remove or adjust if subPath isn't needed
+            readOnly: true
+      tmp:
+        type: emptyDir
+        globalMounts:
+          - path: /tmp
+    service:
+      app:
+        ports:
+          http:
+            port: *port
+    route:
+      app:
+        enabled: true
+        kind: HTTPRoute
+        parentRefs:
+          - name: internal-gateway
+            namespace: networking
+        hostnames:
+          - "{{ .Release.Name }}.${INTERNAL_ADDRESS}"
+        rules:
+          - backendRefs:
+              - name: app
+                port: *port
