@@ -94,7 +94,7 @@ spec:
           - name: internal-gateway
             namespace: networking
         hostnames:
-          - "{{ .Release.Name }}.${INTERNAL_ADDRESS}"
+          - "navidrome.${INTERNAL_ADDRESS}"
         rules:
           - backendRefs:
               - name: app
