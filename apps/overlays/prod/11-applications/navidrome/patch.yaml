@@ -91,7 +91,7 @@ spec:
         enabled: true
         kind: HTTPRoute
         parentRefs:
-          - name: internal-gateway
+          - identifier: internal-gateway
             namespace: networking
         hostnames:
           - "navidrome.${INTERNAL_ADDRESS}"
