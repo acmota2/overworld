@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - backups-pv.yaml
   - immich-pv.yaml
+  - navidrome-pv.yaml
