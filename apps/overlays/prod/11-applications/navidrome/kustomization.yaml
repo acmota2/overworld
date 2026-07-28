@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - ../../../../base/media/navidrome/
+  - namespace.yaml
   - navidrome-pvc.yaml
 
 patches:
