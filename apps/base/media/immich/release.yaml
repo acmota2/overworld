@@ -7,14 +7,10 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m0s
-  chart:
-    spec:
-      chart: immich
-      version: "0.13.1"
-      sourceRef:
-        kind: HelmRepository
-        name: immich-repository
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: immich-repository
+    namespace: flux-system
   targetNamespace: immich
   install:
     createNamespace: true
