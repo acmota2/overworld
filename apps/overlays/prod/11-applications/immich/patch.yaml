@@ -24,19 +24,20 @@ spec:
               REDIS_HOSTNAME: dragonfly.db.svc.cluster.local
               REDIS_PORT: "6379"
 
-    route:
-      main:
-        enabled: true
-        kind: HTTPRoute
-        parentRefs:
-          - name: internal-gateway
-            namespace: networking
-        hostnames:
-          - "immich.${INTERNAL_ADDRESS}"
-        rules:
-          - backendRefs:
-              - identifier: main
-                port: 2283
+    server:
+      route:
+        main:
+          enabled: true
+          kind: HTTPRoute
+          parentRefs:
+            - name: internal-gateway
+              namespace: networking
+          hostnames:
+            - "immich.${INTERNAL_ADDRESS}"
+          rules:
+            - backendRefs:
+                - identifier: main
+                  port: 2283
 
     immich:
       persistence:
