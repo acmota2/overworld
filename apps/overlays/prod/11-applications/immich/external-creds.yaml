@@ -7,17 +7,11 @@ metadata:
 spec:
   refreshInterval: 1m0s
   secretStoreRef:
-    name: databases-secret-store
+    name: infisical-secret-store
     kind: ClusterSecretStore
-
   target:
     name: *name
-    template:
-      engineVersion: v2
-      data:
-        password: "{{ .password }}"
   data:
     - secretKey: password
       remoteRef:
-        key: *name
-        property: password
+        key: /databases/immich-db
