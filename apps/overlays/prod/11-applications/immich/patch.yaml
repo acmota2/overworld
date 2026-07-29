@@ -31,7 +31,7 @@ spec:
           - "immich.${INTERNAL_ADDRESS}"
         rules:
           - backendRefs:
-              - identifier: server
+              - identifier: main
                 port: 2283
 
     immich:
