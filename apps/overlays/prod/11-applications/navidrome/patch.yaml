@@ -29,7 +29,9 @@ spec:
               ND_BASEURL: "https://{{ .Release.Name }}.${INTERNAL_ADDRESS}"
               ND_CACHEFOLDER: /config/cache
               ND_DATAFOLDER: /config
+              ND_DEFAULTDOWNSAMPLINGFORMAT: "mp3"
               ND_ENABLEINSIGHTSCOLLECTOR: false
+              ND_ENFORCENONROOTUSER: true
               ND_IMAGECACHESIZE: 500MB
               ND_MUSICFOLDER: /music
               ND_PORT: &port 80
@@ -37,7 +39,6 @@ spec:
               ND_TRANSCODINGCACHESIZE: 1GB
               ND_TRANSCODING_MAXCONCURRENT: 2
               ND_TRANSCODING_MAXCONCURRENTPERUSER: 1
-              ND_ENFORCENONROOTUSER: true
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
