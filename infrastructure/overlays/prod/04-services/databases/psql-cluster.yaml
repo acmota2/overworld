@@ -16,6 +16,11 @@ spec:
         login: true
         passwordSecret:
           name: immich-db-creds
+      - name: docmost
+        ensure: present
+        login: true
+        passwordSecret:
+          name: docmost-db-creds
   bootstrap:
     initdb:
       database: appdb

@@ -1,0 +1,23 @@
+---
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: docmost-psql-url
+  namespace: docmost
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: infisical-cluster-secretstore
+    kind: ClusterSecretStore
+  target:
+    name: docmost-db-url
+    creationPolicy: Owner
+    template:
+      engineVersion: v2
+      type: Opaque
+      data:
+        url: "postgres://docmost:{{ .password | urlquery }}@psql-musmgr-cluster-rw.db.svc.cluster.local:5432/docmost?sslmode=require"
+  data:
+    - secretKey: password
+      remoteRef:
+        key: "/databases/docmost-db"
