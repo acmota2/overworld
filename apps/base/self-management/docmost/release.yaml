@@ -29,7 +29,7 @@ spec:
               - name: TZ
                 value: "${TIMEZONE:=Etc/UTC}"
               - name: APP_URL
-                value: "https://notes.${INTERNAL_DOMAIN}"
+                value: "https://notes.${INTERNAL_ADDRESS}"
               - name: PORT
                 value: "3000"
               - name: REDIS_URL
