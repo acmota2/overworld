@@ -25,11 +25,15 @@ spec:
               repository: mirror.gcr.io/docmost/docmost
               tag: 0.95.0
             env:
-              TZ: "${TIMEZONE:=Etc/UTC}"
-              APP_URL: "https://notes.${INTERNAL_DOMAIN}"
-              PORT: "3000"
-              REDIS_URL: "redis://dragonfly.db.svc.cluster.local:6379/0"
-              DATABASE_URL:
+              - name: TZ
+                value: "${TIMEZONE:=Etc/UTC}"
+              - name: APP_URL
+                value: "https://notes.${INTERNAL_DOMAIN}"
+              - name: PORT
+                value: "3000"
+              - name: REDIS_URL
+                value: "redis://dragonfly.db.svc.cluster.local:6379/0"
+              - name: DATABASE_URL
                 valueFrom:
                   secretKeyRef:
                     name: docmost-db-url
