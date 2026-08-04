@@ -71,6 +71,6 @@ spec:
             namespace: network
     persistence:
       data:
-        existingClaim: ${VOLSYNC_CLAIM}
+        existingClaim: docmost-pvc
         globalMounts:
           - path: /app/data/storage
