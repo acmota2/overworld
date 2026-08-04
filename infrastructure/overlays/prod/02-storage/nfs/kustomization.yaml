@@ -3,5 +3,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - backups-pv.yaml
+  - docmost-pv.yaml
   - immich-pv.yaml
   - navidrome-pv.yaml
