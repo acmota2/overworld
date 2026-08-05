@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - ../../../../base/self-management/docmost/
+  - app-secret.yaml
   - database.yaml
   - external-creds.yaml
   - ns.yaml

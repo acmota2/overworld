@@ -20,4 +20,4 @@ spec:
   data:
     - secretKey: password
       remoteRef:
-        key: "/databases/docmost-db"
+        key: "/databases/docmost/PASSWORD"
