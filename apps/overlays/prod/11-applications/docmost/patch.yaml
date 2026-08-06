@@ -31,6 +31,11 @@ spec:
                 value: "3000"
               - name: REDIS_URL
                 value: "redis://dragonfly.db.svc.cluster.local:6379/0"
+              - name: APP_SECRET
+                valueFrom:
+                  secretKeyRef:
+                    name: docmost-app-secret
+                    key: APP_SECRET
               - name: DATABASE_URL
                 valueFrom:
                   secretKeyRef:
