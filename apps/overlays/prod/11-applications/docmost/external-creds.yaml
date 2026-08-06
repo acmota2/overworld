@@ -16,7 +16,7 @@ spec:
       engineVersion: v2
       type: Opaque
       data:
-        url: "postgres://docmost:{{ .password | urlquery }}@psql-musmgr-cluster-rw.db.svc.cluster.local:5432/docmost?sslmode=require"
+        url: "postgres://docmost:{{ .password | urlquery }}@psql-cluster-rw.db.svc.cluster.local:5432/docmost?sslmode=require"
   data:
     - secretKey: password
       remoteRef:
