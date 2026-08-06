@@ -53,7 +53,7 @@ spec:
           - "notes.${INTERNAL_ADDRESS}"
         parentRefs:
           - name: internal-gateway
-            namespace: network
+            namespace: networking
     persistence:
       data:
         existingClaim: docmost-pvc
