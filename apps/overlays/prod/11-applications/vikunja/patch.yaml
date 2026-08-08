@@ -43,9 +43,6 @@ spec:
               VIKUNJA_KEYVALUE_TYPE: redis
               VIKUNJA_REDIS_ENABLED: "true"
               VIKUNJA_REDIS_HOST: dragonfly.db.svc.cluster.local:6379
-            envFrom:
-              - secretRef:
-                  name: vikunja-env
             securityContext:
               readOnlyRootFilesystem: true
         pod:
