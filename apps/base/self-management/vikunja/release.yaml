@@ -1,0 +1,93 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/app-template-5.0.1/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: vikunja
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 5.0.1
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        namespace: flux-system
+        name: bjw-s
+  interval: 1h
+  driftDetection:
+    mode: enabled
+  values:
+    controllers:
+      vikunja:
+        containers:
+          app:
+            image:
+              repository: vikunja/vikunja
+              tag: 2.4.0@sha256:1a5dd2d410b5359f689c77bbd1c66742cde1993f82d4adfe9aefa400ff1dd833
+              pullPolicy: IfNotPresent
+            command: [./vikunja]
+            env:
+              VIKUNJA_SERVICE_PUBLICURL: DEFINE_ME
+              VIKUNJA_DEFAULTSETTINGS_TIMEZONE: ${TZ:=Europe/Lisbon}
+              VIKUNJA_DATABASE_TYPE: postgres
+              VIKUNJA_DATABASE_HOST: DEFINE_ME # psql-cluster-rw.db.svc.cluster.local
+              VIKUNJA_DATABASE_DATABASE: vikunja
+              VIKUNJA_DATABASE_USER: vikunja
+              VIKUNJA_DATABASE_PASSWORD:
+                secretKeyRef:
+                  name: vikunja-db-creds
+                  key: password
+
+              VIKUNJA_KEYVALUE_TYPE: redis
+              VIKUNJA_REDIS_ENABLED: "true"
+              VIKUNJA_REDIS_HOST: dragonfly.db.svc.cluster.local:6379
+              VIKUNJA_AUTH_LOCAL: "false"
+            envFrom:
+              - secretRef:
+                  name: vikunja-env
+            securityContext:
+              readOnlyRootFilesystem: true
+        pod:
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+            fsGroupChangePolicy: OnRootMismatch
+
+    service:
+      vikunja:
+        controller: vikunja
+        ports:
+          http:
+            port: &port 3456
+
+    persistence:
+      files:
+        suffix: files
+        storageClass: longhorn
+        accessMode: ReadWriteOnce
+        size: 2Gi
+        retain: true
+        globalMounts:
+          - path: /app/vikunja/files
+      config:
+        type: secret
+        name: vikunja-config
+        globalMounts:
+          - path: /etc/vikunja/config.yaml
+            subPath: config.yaml
+
+    route:
+      vikunja:
+        parentRefs:
+          - name: internal-gateway
+            namespace: networking
+        hostnames:
+          - vikunja.${INTERNAL_ADDRESS}
+        rules:
+          - backendRefs:
+              - identifier: vikunja
+                port: *port

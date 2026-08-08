@@ -1,0 +1,18 @@
+---
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: &name vikunja-db-creds
+  namespace: vikunja
+spec:
+  refreshInterval: 1m
+  secretStoreRef:
+    name: infisical-cluster-secretstore
+    kind: ClusterSecretStore
+  target:
+    name: *name
+    creationPolicy: Owner
+  data:
+    - secretKey: password
+      remoteRef:
+        key: "/databases/vikunja/PASSWORD"

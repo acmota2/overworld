@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../../base/self-management/vikunja/
+  - db.yaml
+  - external-creds.yaml
+  - ns.yaml
+
+patches:
+  - path: patch.yaml
