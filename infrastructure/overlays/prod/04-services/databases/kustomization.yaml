@@ -5,3 +5,4 @@ resources:
   - docmost-external-secret.yaml
   - dragonfly-cluster.yaml
   - psql-cluster.yaml
+  - vikunja-external-secret.yaml
