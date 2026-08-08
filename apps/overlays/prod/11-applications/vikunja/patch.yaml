@@ -72,12 +72,14 @@ spec:
         retain: true
         globalMounts:
           - path: /app/vikunja/files
-      config:
-        type: secret
-        name: vikunja-config
-        globalMounts:
-          - path: /etc/vikunja/config.yaml
-            subPath: config.yaml
+
+      # When needed
+      # config:
+      #   type: secret
+      #   name: vikunja-config
+      #   globalMounts:
+      #     - path: /etc/vikunja/config.yaml
+      #       subPath: config.yaml
 
     route:
       vikunja:
