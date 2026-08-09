@@ -28,10 +28,6 @@ spec:
         enabled: true
         storageClass: longhorn
         size: 100Mi
-      data:
-        enabled: true
-        storageClass: "openebs-hostpath" # S3 object storage
-        size: 1Gi
 
     ingress:
       s3:
