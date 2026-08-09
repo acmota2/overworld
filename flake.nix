@@ -16,6 +16,7 @@
         packages = with pkgs; [
           age
           fluxcd
+          jq
           just
           k3d
           kube-linter
