@@ -1,0 +1,40 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: garage
+  namespace: flux-system
+spec:
+  interval: 10m
+  targetNamespace: garage
+  chart:
+    spec:
+      chart: script/helm/garage
+      sourceRef:
+        kind: GitRepository
+        name: garage
+        namespace: flux-system
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    garage:
+      replicationFactor: 2
+      existingSecret: garage-cluster-secrets
+    deployment:
+      replicaCount: 1
+
+    persistence:
+      meta:
+        enabled: true
+        storageClass: longhorn
+        size: 100Mi
+      data:
+        enabled: true
+        existing-claim: garage-pvc
+
+    ingress:
+      s3:
+        enabled: false
+      web:
+        enabled: false

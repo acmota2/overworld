@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - backups-pv.yaml
   - docmost-pv.yaml
+  - garage-pv.yaml
   - immich-pv.yaml
   - navidrome-pv.yaml
