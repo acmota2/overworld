@@ -26,4 +26,4 @@ spec:
               value: garage-admin.${INTERNAL_ADDRESS}
       backendRefs:
         - name: garage-garage
-          port: 3903
+          port: 3902
