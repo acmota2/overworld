@@ -19,10 +19,10 @@ spec:
       retries: 3
   values:
     garage:
-      replicationFactor: 2
+      replicationFactor: 1
       existingSecret: garage-cluster-secrets
     deployment:
-      replicaCount: 1
+      replicaCount: 2
 
     persistence:
       meta:
