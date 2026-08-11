@@ -15,7 +15,7 @@ spec:
         - name: ghcr-creds
       containers:
         - name: goose
-          image: "ghcr.io/acmota2/musmgr/goose-job:0.6.2"
+          image: "ghcr.io/acmota2/musmgr/goose-job:0.7.1"
           env:
             - name: GOOSE_DRIVER
               value: postgres
