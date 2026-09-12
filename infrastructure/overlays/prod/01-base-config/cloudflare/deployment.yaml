@@ -15,7 +15,7 @@ spec:
       containers:
         - name: cloudflared
           image: cloudflare/cloudflared:2026.9.1
-          args: ["tunnel", "run", "--token"]
+          args: ["tunnel", "run"]
           env:
             - name: TUNNEL_TOKEN
               valueFrom:
