@@ -1,0 +1,44 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: blog-builder
+  namespace: blog
+spec:
+  schedule: "0 2 * * *" # Every day at 2 AM
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: blog-builder-sa
+          restartPolicy: OnFailure
+          containers:
+            - name: builder
+              image: alpine:latest
+              command: ["/bin/sh", "-c"]
+              args:
+                - |
+                  apk add --no-cache git hugo rclone kubectl
+                  git clone https://github.com/your-username/your-blog-repo.git /workdir
+                  cd /workdir
+                  hugo
+
+                  # Mount the templated config directly
+                  mkdir -p /root/.config/rclone
+                  cp /etc/rclone/rclone.conf /root/.config/rclone/rclone.conf
+
+                  rclone sync ./public garage:your-bucket-name --progress
+              volumeMounts:
+                - name: rclone-config
+                  mountPath: /etc/rclone
+                - name: workdir
+                  mountPath: /workdir
+          volumes:
+            - name: rclone-config
+              secret:
+                secretName: garage-rclone-config
+                items:
+                  - key: rclone.conf
+                    path: rclone.conf
+            - name: workdir
+              emptyDir: {}
