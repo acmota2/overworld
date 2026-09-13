@@ -20,6 +20,7 @@ spec:
                   apk add --no-cache git hugo rclone kubectl
                   git clone https://github.com/acmota2/tech-blog.git /workdir
                   cd /workdir
+                  git submodule update --init --recursive
 
                   echo "Building site..."
                   hugo
