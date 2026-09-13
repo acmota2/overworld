@@ -4,4 +4,5 @@ kind: Kustomization
 resources:
   - cron-job.yaml
   - external-secret.yaml
+  - http-route.yaml
   - sa.yaml
