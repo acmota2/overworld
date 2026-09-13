@@ -7,6 +7,9 @@ metadata:
 spec:
   interval: 1h
   values:
-    forgejo:
-      url: https://git.${INTERNAL_ADDRESS}
-      existingSecret: forgejo-runner-secret
+    persistence:
+      config:
+        type: secret
+        name: forgejo-runner-secret
+        globalMounts:
+          - path: /etc/forgejo-runner
