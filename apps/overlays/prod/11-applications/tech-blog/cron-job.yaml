@@ -31,7 +31,7 @@ spec:
                   rclone mkdir garage:tech-blog-bucket || true
 
                   echo "Syncing to Garage..."
-                  rclone sync ./public garage:your-bucket-name --progress
+                  rclone sync ./public garage:tech-blog-bucket --progress
 
                   echo "Done."
               volumeMounts:
