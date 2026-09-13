@@ -27,7 +27,7 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: external-networking
+  name: networking-external
 ---
 apiVersion: v1
 kind: Namespace
