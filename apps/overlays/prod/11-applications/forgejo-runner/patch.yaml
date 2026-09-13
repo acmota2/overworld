@@ -1,0 +1,12 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: forgejo-runner
+  namespace: flux-system
+spec:
+  interval: 1h
+  values:
+    forgejo:
+      url: https://git.${INTERNAL_ADDRESS}
+      existingSecret: forgejo-runner-secret

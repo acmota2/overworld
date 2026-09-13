@@ -1,0 +1,23 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: forgejo-runner
+  namespace: flux-system
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: forgejo-runner
+  interval: 1h
+  targetNamespace: forgejo-runner
+  values:
+    image:
+      repository: git.xcd.dev/gabrielcosi/runner
+      tag: "13.1.0@sha256:a6e71fa99e8e2cf8c2a5bdf9b0a01b3c4daca545943cf889664829a00a425a30"
+    plugin:
+      image:
+        repository: registry.xcd.dev/x/registry.erwanleboucher.dev/eleboucher/runner-k8s-plugin
+        tag: "13.1.0"
+
+    podLabels:
+      app.kubernetes.io/component: forgejo-runner
