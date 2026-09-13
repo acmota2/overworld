@@ -18,6 +18,7 @@ spec:
   interval: 1h
   values:
     defaultPodOptions:
+      automountServiceAccountToken: true
       securityContext:
         runAsGroup: 1000
         runAsNonRoot: true
