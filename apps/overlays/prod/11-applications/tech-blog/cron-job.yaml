@@ -1,4 +1,3 @@
----
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -21,13 +20,20 @@ spec:
                   apk add --no-cache git hugo rclone kubectl
                   git clone https://github.com/your-username/your-blog-repo.git /workdir
                   cd /workdir
+
+                  echo "Building site..."
                   hugo
 
-                  # Mount the templated config directly
                   mkdir -p /root/.config/rclone
                   cp /etc/rclone/rclone.conf /root/.config/rclone/rclone.conf
 
+                  echo "Ensuring bucket exists..."
+                  rclone mkdir garage:tech-blog-bucket || true
+
+                  echo "Syncing to Garage..."
                   rclone sync ./public garage:your-bucket-name --progress
+
+                  echo "Done."
               volumeMounts:
                 - name: rclone-config
                   mountPath: /etc/rclone
@@ -36,7 +42,7 @@ spec:
           volumes:
             - name: rclone-config
               secret:
-                secretName: garage-rclone-config
+                secretName: garage-rclone-config # This is the name from your ExternalSecret
                 items:
                   - key: rclone.conf
                     path: rclone.conf
