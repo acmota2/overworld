@@ -9,6 +9,8 @@ spec:
   parentRefs:
     - name: external-gateway
       namespace: networking-external
+      sectionName: http-external
+      port: 80
   hostnames:
     - blog.andremota.xyz
   rules:
