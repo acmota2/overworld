@@ -12,11 +12,10 @@ spec:
   hostnames:
     - blog.andremota.xyz
   rules:
-    - request:
-        headers:
-          - name: Host
-            action: Set
-            value: tech-blog-bucket
+    - filters:
+        - type: URLRewrite
+          urlRewrite:
+            hostname: tech-blog-bucket
       backendRefs:
         - name: garage-garage
           port: 3902
