@@ -37,6 +37,11 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: blog
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: garage
 ---
 apiVersion: v1
