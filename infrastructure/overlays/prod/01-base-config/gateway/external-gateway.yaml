@@ -5,11 +5,7 @@ metadata:
   name: external-gateway
   namespace: networking-external
 spec:
-  gatewayClassName: envoy
-  parametersRef:
-    group: gateway.envoyproxy.io
-    kind: EnvoyProxy
-    name: external-proxy
+  gatewayClassName: envoy-external
   listeners:
     - name: http-external
       port: 80
